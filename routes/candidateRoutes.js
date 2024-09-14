@@ -13,6 +13,9 @@ candidateRoutes.post('/candidate', candidateController.createNewCandidate);
 
     /* Ver um */
     candidateRoutes.get('/candidate/:id', candidateController.getOneCandidate);
+        /* Ver um com o partyNumber */
+        candidateRoutes.get('/candidate/party/:partyNumber', candidateController.getOneByPartyNumber);
+
 
 /* --- UPDATE --- */
     /* Atualizar candidato */

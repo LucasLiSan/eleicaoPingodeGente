@@ -20,12 +20,23 @@ class CandidateService {
             } catch (error) { console.log(error); }
         }
 
-        /* --- Método LISTAR UM --- */
+        /* --- Método LISTAR UM: id --- */
         async getOne(id) {
             try {
                 const candidate = await Candidate.findOne({ _id:id });
                 return candidate;
             } catch (error) { console.log(error); }
+        }
+
+        /* --- Método LISTAR UM: partyNumber --- */
+        async getByPartyNumber(partyNumber) {
+            try {
+                const candidate = await Candidate.findOne({ partyNumber: partyNumber });
+                return candidate;
+            } catch (error) {
+                console.log(error);
+                throw new Error('Erro ao buscar candidato pelo partyNumber');
+            }
         }
 
     /* ----- Método UPDATE ----- */

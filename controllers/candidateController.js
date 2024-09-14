@@ -26,7 +26,7 @@ const createNewCandidate = async (req, res) => {
         }
     }
 
-    /* --- Listar um candidato --- */
+    /* --- Listar um candidato: id --- */
     const getOneCandidate = async (req, res) => {
         try {
             if(ObjectId.isValid(req.params.id)) {
@@ -45,6 +45,23 @@ const createNewCandidate = async (req, res) => {
             res.status(500).json({ err: 'Erro interno do servidor' }); // Código Status 500: Internal Server Error
         }
     }
+
+    /* --- Listar um candidato: partyNumber --- */
+    const getOneByPartyNumber = async (req, res) => {
+        try {
+            const partyNumber = req.params.partyNumber;
+            const candidate = await CandidateService.getByPartyNumber(partyNumber);
+            if (!candidate) {
+                res.status(404).json({ err: 'Candidato não encontrado.' }); // Código Status 404: Not Found
+            } else {
+                res.status(200).json({ candidate }); // Código Status 200: OK
+            }
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ err: 'Erro interno do servidor.' }); // Código Status 500: Internal Server Error
+        }
+    }
+
 
 /* ----- UPDATE ----- */
     /* --- Atualizar informações candidato --- */
@@ -102,4 +119,4 @@ const deleteCandidate = async (req, res) => {
     }
 }
 
-export default { createNewCandidate, getAllCandidates, getOneCandidate, updateCandidates, updateVotes, deleteCandidate };
+export default { createNewCandidate, getAllCandidates, getOneCandidate, getOneByPartyNumber, updateCandidates, updateVotes, deleteCandidate };

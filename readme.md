@@ -182,7 +182,7 @@ Caso essa resposta aconteça, significa que ocorreu um erro interno no servidor.
 }
 ```
 
-### GET /candidate/PARTYNUMBER
+### GET /candidate/party/PARTYNUMBER
 Esse endpoint é responsável por retornar as informações de uma chapa de candidatura específica pelo seu ***PARTYNUMBER***.
 
 #### Parâmetros:
