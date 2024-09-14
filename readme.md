@@ -23,7 +23,7 @@ Editor <br>
 {
 	"name": "Nome do candidato",
 	"viceName": "Nome do vice candidato",
-	"party": "Número do partido",
+	"party": "Sigla do partido",
 	"partyNumber": "Número do partido",
 	"votes": "Número de votos"
 }
@@ -182,6 +182,66 @@ Caso essa resposta aconteça, significa que ocorreu um erro interno no servidor.
 }
 ```
 
+### GET /candidate/ID
+Esse endpoint é responsável por retornar as informações de uma chapa de candidatura específica pelo seu **ID**.
+
+#### Parâmetros:
+- **ID da chapa de candidatura a ser solicitado**.
+
+##### Exemplo de requisição:
+```
+/candidate/66e48f5858b0269873dac4ee
+```
+
+#### Respostas:
+<span style = "color:#00FF00; font-weight: bold">OK! 200</span><br>
+Caso essa resposta aconteça, você vai receber as informações da chapa de candidatura solicitada.
+
+##### Exemplo de resposta:
+```
+{
+	"candidate": {
+		"_id": "66e48f5858b0269873dac4ee",
+		"name": "Orestes Quércia",
+		"viceName": "Iris de Araújo",
+		"party": "PMDB",
+		"partyNumber": 15,
+		"votes": 0,
+		"__v": 0
+	}
+}
+```
+
+<span style = "color:#FAA500; font-weight: bold">Não Encontrado! 404</span><br>
+Caso essa resposta aconteça, significa que a chapa de candidatura com o ID fornecido não foi encontrada.
+
+##### Exemplo de resposta:
+```
+{
+    "err": "Candidato não encontrado!"
+}
+```
+
+<span style = "color:#FAA500; font-weight: bold">Requisição Inválida! 400</span><br>
+Caso essa resposta aconteça, significa que o ID fornecido é inválido.
+
+##### Exemplo de resposta:
+```
+{
+    "err": "ID inválido!"
+}
+```
+
+<span style = "color:#FF0000; font-weight: bold">Erro Interno do Servidor! 500</span><br>
+Caso essa resposta aconteça, significa que ocorreu um erro interno no servidor.
+
+##### Exemplo de resposta:
+```
+{
+    "err": "Erro interno do servidor!"
+}
+```
+
 ### GET /candidate/party/PARTYNUMBER
 Esse endpoint é responsável por retornar as informações de uma chapa de candidatura específica pelo seu ***PARTYNUMBER***.
 
@@ -190,7 +250,7 @@ Esse endpoint é responsável por retornar as informações de uma chapa de cand
 
 ##### Exemplo de requisição:
 ```
-/candidate/56
+/candidate/party/56
 ```
 
 #### Respostas:

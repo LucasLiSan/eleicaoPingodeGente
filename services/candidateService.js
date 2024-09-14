@@ -40,7 +40,7 @@ class CandidateService {
         }
 
     /* ----- Método UPDATE ----- */
-        /* --- Método UPDATE CANDIDATES --- */
+        /* --- Método UPDATE CANDIDATES: id --- */
         async updateCandidates(id, name, viceName, party, partyNumber) {
             try {
                 await Candidate.findByIdAndUpdate(
@@ -52,7 +52,10 @@ class CandidateService {
             } catch (error) { console.log(error); }
         }
 
-        /* --- Método UPDATE VOTES --- */
+        /* --- Método UPDATE CANDIDATES: partyNumber --- */
+
+
+        /* --- Método UPDATE VOTES: id --- */
         async updateVotes(id, voteIncrement) {
             try {
                 await Candidate.findByIdAndUpdate(

@@ -1,4 +1,4 @@
-import CandidateService from "../services/voteService.js";
+import CandidateService from "../services/candidateService.js";
 import { ObjectId } from "mongodb";
 
 /* ----- CREATE ----- */
