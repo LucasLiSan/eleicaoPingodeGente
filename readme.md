@@ -322,16 +322,120 @@ Esse endpoint é responsável por atualizar as informações de uma chapa de can
 	"name": "Hernani Goulart Fortuna"
 }
 ```
-> "name": "Hernani Fortuna" (Valor original)
+> "name": "Hernani Fortuna" (Valor inicial).
 
 #### Respostas:
 <span style = "color:#00FF00; font-weight: bold">OK! 200</span><br>
-Caso essa resposta aconteça, as informações do livro foram atualizadas com sucesso.
+Caso essa resposta aconteça, as informações da chapa de candidatura foram atualizadas com sucesso.
 
 ##### Exemplo de resposta:
 ```
 {
 	"Success": "Candidato 'Hernani Goulart Fortuna' atualizado com sucesso."
+}
+```
+
+<span style = "color:#FAA500; font-weight: bold">Requisição Inválida! 400</span><br>
+Caso essa resposta aconteça, significa que o ID fornecido é inválido ou a requisição contém dados malformados.
+
+##### Exemplo de resposta:
+```
+{
+    "err": "ID inválido ou dados malformados!"
+}
+```
+
+<span style = "color:#FF0000; font-weight: bold">Erro Interno do Servidor! 500</span><br>
+Caso essa resposta aconteça, significa que ocorreu um erro interno no servidor.
+
+##### Exemplo de resposta:
+```
+{
+    "err": "Erro interno do servidor!"
+}
+```
+
+### <span style = "color:#FFFF00; font-weight: bold">PATCH</span> /candidate/ID/votes
+Esse endpoint é responsável por atualizar o número de votos de uma chapa de candidatura pelo seu **ID**.
+
+#### Parâmetros:
+- **ID**;
+- **Quantidade de votos a ser acrescida**.
+
+> Não é necessário incluir todos os campos, apenas o de votos.
+
+> [!WARNING]  
+> Não inserir as outras informações do chapa de candidatura nesse endpoint, pra essa situação existe o endpoint específico. 
+
+##### Exemplo de requisição:
+```
+/candidate/66e48371d65bab42cbeecb61/votes
+
+{
+	"votes": 14.744
+}
+```
+
+#### Respostas:
+<span style = "color:#00FF00; font-weight: bold">OK! 200</span><br>
+Caso essa resposta aconteça, a quantidade de votos da chapa de candidatura foi atualizada com sucesso.
+
+##### Exemplo de resposta:
+```
+{
+	"Success": "Votos do candidato 'Fernando Henrique Cardoso' atualizados com sucesso."
+}
+```
+
+<span style = "color:#FAA500; font-weight: bold">Requisição Inválida! 400</span><br>
+Caso essa resposta aconteça, significa que o ID fornecido é inválido ou a requisição contém dados malformados.
+
+##### Exemplo de resposta:
+```
+{
+    "err": "ID inválido ou dados malformados!"
+}
+```
+
+<span style = "color:#FF0000; font-weight: bold">Erro Interno do Servidor! 500</span><br>
+Caso essa resposta aconteça, significa que ocorreu um erro interno no servidor.
+
+##### Exemplo de resposta:
+```
+{
+    "err": "Erro interno do servidor!"
+}
+```
+
+### <span style = "color:#FFFF00; font-weight: bold">PATCH</span> /candidate/partyNumber/:partyNumber/votes
+Esse endpoint é responsável por atualizar o número de votos de uma chapa de candidatura pelo seu ***PARTYNUMBER***.
+
+#### Parâmetros:
+- ***PARTYNUMBER***;
+- **Quantidade de votos a ser acrescida**.
+
+> Não é necessário incluir todos os campos, apenas o de votos.
+
+> [!WARNING]  
+> Não inserir as outras informações do chapa de candidatura nesse endpoint, pra essa situação existe o endpoint específico. 
+
+##### Exemplo de requisição:
+```
+/candidate/partyNumber/13/votes
+
+{
+	"votes": 9.872
+}
+```
+
+#### Respostas:
+<span style = "color:#00FF00; font-weight: bold">OK! 200</span><br>
+Caso essa resposta aconteça, a quantidade de votos da chapa de candidatura foi atualizada com sucesso.
+
+##### Exemplo de resposta:
+```
+{
+	"Success": "Votos do candidato 'Luiz Inácio Lula da Silva' atualizados com sucesso."
 }
 ```
 
@@ -394,3 +498,9 @@ Caso essa resposta aconteça, significa que ocorreu um erro interno no servidor.
     "err": "Erro interno do servidor!"
 }
 ```
+
+## REFERÊNCIAS
+Os quantitativos de votos usados nas demonstrações foram retiradas do site do [Tribunal Superior Eleitoral](https://www.tse.jus.br/#/):
+- [Chapas de candidaturas](https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_1994);
+- Quantidade de votos: [Resultados das Eleições 1994 - 1º Turno - Brasil
+](https://www.tse.jus.br/eleicoes/eleicoes-anteriores/eleicoes-1994/resultados-das-eleicoes-1994/brasil/resultados-das-eleicoes-1994-brasil).
