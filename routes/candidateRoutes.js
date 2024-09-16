@@ -12,7 +12,8 @@ candidateRoutes.post('/candidate', candidateController.createNewCandidate);
     candidateRoutes.get('/candidates', candidateController.getAllCandidates);
 
     /* Ver um */
-    candidateRoutes.get('/candidate/:id', candidateController.getOneCandidate);
+        /* Ver um com o id */
+        candidateRoutes.get('/candidate/:id', candidateController.getOneCandidate);
         /* Ver um com o partyNumber */
         candidateRoutes.get('/candidate/party/:partyNumber', candidateController.getOneByPartyNumber);
 
@@ -21,8 +22,12 @@ candidateRoutes.post('/candidate', candidateController.createNewCandidate);
     /* Atualizar candidato */
     candidateRoutes.patch('/candidate/:id', candidateController.updateCandidates);
 
-    /* Atualizar votos */
+    /* Atualizar votos: por id */
     candidateRoutes.patch('/candidate/:id/votes', candidateController.updateVotes);
+
+    /* Atualizar votos usando partyNumber */
+    candidateRoutes.patch('/candidate/partyNumber/:partyNumber/votes', candidateController.updateVotesByPartyNumber);
+
 
 /* --- DELETE --- */
 candidateRoutes.delete('/candidate/:id', candidateController.deleteCandidate);

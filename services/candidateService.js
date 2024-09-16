@@ -67,6 +67,23 @@ class CandidateService {
             } catch (error) { console.log(error); }
         }
 
+        /* --- Método UPDATE VOTES: partyNumber --- */
+        async updateVotesByPartyNumber(partyNumber, voteIncrement) {
+            try {
+                const candidate = await Candidate.findOneAndUpdate(
+                    { partyNumber: partyNumber },
+                    { $inc: { votes: voteIncrement } },
+                    { new: true }
+                );
+                if (!candidate) throw new Error(`Candidato com o partyNumber ${partyNumber} não encontrado.`);
+                console.log(`Votos atualizados para o candidato com partyNumber: ${partyNumber}`);
+                return candidate;
+            } catch (error) {
+                console.log(error);
+                throw error;
+            }
+        }
+
     /* ----- Método DELETAR ----- */
     async delete(id) {
         try {
