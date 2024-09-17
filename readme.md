@@ -504,3 +504,6 @@ Os quantitativos de votos usados nas demonstrações foram retiradas do site do 
 - [Chapas de candidaturas](https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_1994);
 - Quantidade de votos: [Resultados das Eleições 1994 - 1º Turno - Brasil
 ](https://www.tse.jus.br/eleicoes/eleicoes-anteriores/eleicoes-1994/resultados-das-eleicoes-1994/brasil/resultados-das-eleicoes-1994-brasil).
+
+### URNA ELETRÔNICA DO BRASIL
+[:balance_scale: Justiça Eleitoral](https://www.justicaeleitoral.jus.br/urna-eletronica/) • ***O sistema de votação eletrônico brasileiro permite o exercício da cidadania com maior segurança. A urna foi desenvolvida para computar votos de forma segura e sigilosa, atendendo à demanda e às características específicas do Brasil.***

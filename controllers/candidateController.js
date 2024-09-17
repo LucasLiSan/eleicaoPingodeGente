@@ -108,9 +108,7 @@ const createNewCandidate = async (req, res) => {
             const { partyNumber } = req.params;
             const { votes } = req.body;
             const existingCandidate = await CandidateService.getByPartyNumber(partyNumber);
-            if (!existingCandidate) {
-                return res.status(404).json({ err: 'Candidato não encontrado.' }); // Código Status 404: Not Found
-            }
+            if (!existingCandidate) { return res.status(404).json({ err: 'Candidato não encontrado.' }); } // Código Status 404: Not Found
             await CandidateService.updateVotesByPartyNumber(partyNumber, votes);
             res.status(200).json({ Success: `Votos do candidato '${existingCandidate.name}' atualizados com sucesso.` }); // Código Status 200: OK
         } catch (error) {
@@ -118,7 +116,6 @@ const createNewCandidate = async (req, res) => {
             res.status(500).json({ err: 'Erro interno do servidor.' }); // Código Status 500: Internal Server Error
         }
     }
-
 
 /* ----- DELETE ----- */
 /* --- Deletar candidato --- */

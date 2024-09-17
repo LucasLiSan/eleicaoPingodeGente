@@ -17,7 +17,6 @@ candidateRoutes.post('/candidate', candidateController.createNewCandidate);
         /* Ver um com o partyNumber */
         candidateRoutes.get('/candidate/party/:partyNumber', candidateController.getOneByPartyNumber);
 
-
 /* --- UPDATE --- */
     /* Atualizar candidato */
     candidateRoutes.patch('/candidate/:id', candidateController.updateCandidates);
@@ -27,7 +26,6 @@ candidateRoutes.post('/candidate', candidateController.createNewCandidate);
 
     /* Atualizar votos usando partyNumber */
     candidateRoutes.patch('/candidate/partyNumber/:partyNumber/votes', candidateController.updateVotesByPartyNumber);
-
 
 /* --- DELETE --- */
 candidateRoutes.delete('/candidate/:id', candidateController.deleteCandidate);
