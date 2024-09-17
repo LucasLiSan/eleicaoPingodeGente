@@ -1,3 +1,170 @@
 body {
-    background: #FF0000;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #C2C2C2;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+main {
+    width: 800px;
+    height: 600px;
+    border: solid 3px #000000;
+    display: grid;
+    grid-template: 
+        "infos pics" 100%
+        / 2fr 1fr
+    ;
+}
+
+.infos {
+    width: 100%;
+    height: 100%;
+    grid-area: infos;
+    display: grid;
+    grid-template:
+        "head" 10%
+        "role" 10%
+        "candidatesInfos" 65%
+        "subtitles" 15%
+        / 1fr
+    ;
+    align-items: center;
+}
+
+.head { grid-area: head; }
+.head h3 { font-weight: 100; }
+
+.role { grid-area: role; }
+.role h1 {
+    text-align: center;
+    font-weight: 600;
+}
+
+.candidatesInfos {
+    grid-area: candidatesInfos;
+    height: 100%;
+    display: grid;
+    grid-template:
+        "labels inputs" 100%
+        / 30% 2fr
+    ;
+}
+
+.labels {
+    padding-left: 5px;
+    grid-area: labels;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.labels label {
+    width: auto;
+    height: 35px;
+    align-content: center;
+}
+
+.inputs {
+    grid-area: inputs;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-left: 5px;
+}
+
+.inputs input {
+    height: 35px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #000000;
+}
+
+.partyNumber {
+    display: flex;
+    height: 35px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.partyNumber input {
+    width: 40px;
+    height: 60px;
+    text-align: center;
+    border: solid 1px #000000;
+    margin-left: 10px;
+    font-size: 3.5rem;
+}
+
+.subtitles {
+    grid-area: subtitles;
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 25% 40%;
+    justify-items: center;
+    border-top: #000000 solid 3px;
+}
+
+.subtitles span { 
+    width: 100%;
+    height: 20px;
+}
+
+.subHead {
+    text-align: right;
+}
+
+.subtitlesLeft {
+    margin-right: 20px;
+    text-align: right;
+}
+
+.subtitlesRight {
+    text-align: left;
+}
+
+.pics {
+    width: 100%;
+    height: 100%;
+    grid-area: pics;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: stretch;
+}
+
+.candidate {
+    width: 60%;
+    height: 40%;
+    text-align: center;
+    border: #000000 1px solid;
+    text-transform: uppercase;
+}
+
+.candidate img { width: 100%; }
+
+.viceCandidate {
+    width: 55%;
+    height: 37%;
+    text-align: center;
+    border: #000000 1px solid;
+    text-transform: uppercase;
+}
+
+.viceCandidate img { width: 100%; }
+
+/* ----- RESPOSIVIDADE ----- */
+
+@media (width < 800px ) {
+    body { overflow: auto; }
 }

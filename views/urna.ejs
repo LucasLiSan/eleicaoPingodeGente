@@ -4,9 +4,53 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="/css/style.css">
-            <title>ELEIÇÃO 2024</title>
+            <title>URNA ELETRÔNICA</title>
         </head>
         <body>
-            <h1>TESTE</h1>
+            <main>
+                <section class="infos">
+                    <div class="head">
+                        <h3>Seu voto para</h3>
+                    </div>
+                    <div class="role">
+                        <h1>Candidatura</h1>
+                    </div>
+                    <form class="candidatesInfos">
+                        <div class="labels">
+                            <label for="partyNumber">Número:</label>
+                            <label for="name">Nome:</label>
+                            <label for="party">Partido:</label>
+                            <label for="viceName">Vice-Candidato:</label>
+                        </div>
+                        <div class="inputs">
+                            <div class="partyNumber">
+                                <input type="text" name="partyNumber" id="firstPartyNumber" class="partyNumbers">
+                                <input type="text" name="partyNumber" id="secondPartyNumber" class="partyNumbers">
+                            </div>
+                            <input type="text" name="name" id="candidateName" value="Fernando Henrique Cardoso" disabled>
+                            <input type="text" name="party" id="partyName" value="PSDB" disabled>
+                            <input type="text" name="viceName" id="viceCandidateName" value="Marco Maciel" disabled>
+                        </div>
+                    </form>
+                    <div class="subtitles">
+                        <span class="subHead">Aperte a tecla:</span>
+                        <span></span>
+                        <span class="subtitlesLeft">CONFIRMA</span>
+                        <span class="subtitlesRight">para CONFIRMAR este voto</span>
+                        <span class="subtitlesLeft">CORRIGE</span>
+                        <span class="subtitlesRight">para REINICIAR este voto</span>
+                    </div>
+                </section>
+                <section class="pics">
+                    <figure class="candidate">
+                        <img src="/imgs/candidates/45-fernandoHenriqueCardoso.webp" alt="Candidate">
+                        <figcaption>Candidato</figcaption>
+                    </figure>
+                    <figure class="viceCandidate">
+                        <img src="/imgs/viceCandidates/45-marcoMaciel.webp" alt="Vice Candidate">
+                        <figcaption>Vice Candidato</figcaption>
+                    </figure>
+                </section>
+            </main>
         </body>
     </html>
