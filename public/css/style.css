@@ -1,3 +1,9 @@
+/* --------- FOCUS/HOVER/ACTIVE EFFECT --------- */
+.partyNumbers:focus {
+    outline: none;
+}
+
+/* --------- CSS PADRÃO --------- */
 body {
     width: 100vw;
     height: 100vh;
@@ -59,7 +65,7 @@ main {
 .labels {
     padding-left: 5px;
     grid-area: labels;
-    display: flex;
+    display: none;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -105,10 +111,20 @@ main {
     font-size: 3.5rem;
 }
 
+.blinking {
+    animation: blink-border 1s infinite;
+}
+
+@keyframes blink-border {
+    0% { border-color: #000000; }
+    50% { border-color: transparent; }
+    100% { border-color: #000000; }
+}
+
 .subtitles {
     grid-area: subtitles;
     padding-top: 10px;
-    display: grid;
+    display: none;
     grid-template-columns: 25% 40%;
     justify-items: center;
     border-top: #000000 solid 3px;
@@ -136,7 +152,7 @@ main {
     width: 100%;
     height: 100%;
     grid-area: pics;
-    display: flex;
+    display: none;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-end;
