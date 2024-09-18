@@ -5,6 +5,8 @@ const candidateSchema = new mongoose.Schema({
     viceName: String,
     party: String,
     partyNumber: Number,
+    candidatePic: String,
+    viceCandidatePic: String,
     votes: {
         type: Number,
         default: 0

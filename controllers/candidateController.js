@@ -5,8 +5,8 @@ import { ObjectId } from "mongodb";
 /* --- Inserir candidato novo --- */
 const createNewCandidate = async (req, res) => {
     try {
-        const { name, viceName, party, partyNumber} = req.body;
-        const newCandidate = await CandidateService.create(name, viceName, party, partyNumber);
+        const { name, viceName, party, partyNumber, candidatePic, viceCandidatePic} = req.body;
+        const newCandidate = await CandidateService.create(name, viceName, party, partyNumber, candidatePic, viceCandidatePic);
         res.status(201).json({ Success: `Candidato '${newCandidate.name}' cadastrado com sucesso` }); // Código Status 201: Created
     } catch (error) { 
         console.log (error);
@@ -69,10 +69,10 @@ const createNewCandidate = async (req, res) => {
         try {
             if(ObjectId.isValid(req.params.id)) {
                 const id = req.params.id;
-                const { name, viceName, party, partyNumber } = req.body;
+                const { name, viceName, party, partyNumber, candidatePic, viceCandidatePic } = req.body;
                 const existingCandidate = await CandidateService.getOne(id);
                 if (!existingCandidate) { return res.status(404).json({ err: 'Candidato não encontrado.' }); } // Código Status 404: Not Found
-                await CandidateService.updateCandidates(id, name, viceName, party, partyNumber);
+                await CandidateService.updateCandidates(id, name, viceName, party, partyNumber, candidatePic, viceCandidatePic);
                 res.status(200).json({ Success: `Candidato '${name}' atualizado com sucesso.` }); // Código Status 200: OK
             } else {
                 res.sendStatus(400); // Código Status 400: Bad Request

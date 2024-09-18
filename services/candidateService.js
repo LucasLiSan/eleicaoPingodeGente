@@ -2,10 +2,10 @@ import Candidate from "../models/candidate.js";
 
 class CandidateService {
     /* ----- Método CADASTRAR ----- */
-    async create(name, viceName, party, partyNumber)
+    async create(name, viceName, party, partyNumber, candidatePic, viceCandidatePic)
     {
         try {
-            const newCandidate = new Candidate ({ name, viceName, party, partyNumber, votes:0 });
+            const newCandidate = new Candidate ({ name, viceName, party, partyNumber, candidatePic, viceCandidatePic, votes:0 });
             await newCandidate.save();
             return newCandidate;
         } catch (error) { console.log(error); }
@@ -41,11 +41,11 @@ class CandidateService {
 
     /* ----- Método UPDATE ----- */
         /* --- Método UPDATE CANDIDATES: id --- */
-        async updateCandidates(id, name, viceName, party, partyNumber) {
+        async updateCandidates(id, name, viceName, party, partyNumber, candidatePic, viceCandidatePic) {
             try {
                 await Candidate.findByIdAndUpdate(
                     id,
-                    { name, viceName, party, partyNumber },
+                    { name, viceName, party, partyNumber, candidatePic, viceCandidatePic },
                     { new : true }
                 );
                 console.log(`Alterações no candidato id: ${id} feitas com sucesso`);
