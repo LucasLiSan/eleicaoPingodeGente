@@ -11,6 +11,11 @@ Tecnologias utilizadas: <br>
     <img src="https://skillicons.dev/icons?i=mongodb,nodejs" />
   </a>
 </p>
+<p>
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=html,css,js" />
+  </a>
+</p>
 Editor <br>
 <p>
   <a href="https://skillicons.dev">
@@ -25,9 +30,14 @@ Editor <br>
 	"viceName": "Nome do vice candidato",
 	"party": "Sigla do partido",
 	"partyNumber": "Número do partido",
-	"votes": "Número de votos"
+	"candidatePic": "Foto do candidato (url)",
+	"viceCandidatePic": "Foto do vice candidato (url)"
+	"votes": "Número de votos",
 }
 ```
+
+> [!TIP]
+> Não é obrigatório mas de preferencia usar a extensão .webp para as imagens. Tem um tamanho de arquivo menor sem perder a qualidade da imagem.
 
 ## ENDPOINTS
 ### <span style = "color:#00FF00; font-weight: bold">POST</span> /candidate
@@ -38,6 +48,8 @@ Esse endpoint é responsável por cadastrar uma nova chapa de candidatura no ban
 - viceName: String,
 - party: String,
 - partyNumber: Number,
+- candidatePic: String,
+- viceCandidatePic: String
 
 ##### Exemplo de requisição:
 ```
@@ -45,7 +57,9 @@ Esse endpoint é responsável por cadastrar uma nova chapa de candidatura no ban
 	"name": "Carlos Antônio Gomes",
 	"viceName": "Dílton Carlos Salomoni",
 	"party": "PRN",
-	"partyNumber": 36
+	"partyNumber": 36,
+	"candidatePic": "/imgs/candidates/36-carlosAntônioGomes.webp",
+	"viceCandidatePic": "/imgs/viceCandidates/36-díltonCarlosSalomoni.webp"
 }
 ```
 
@@ -92,8 +106,10 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"viceName": "Marco Maciel",
 			"party": "PSDB",
 			"partyNumber": 45,
-			"votes": 0,
-			"__v": 0
+			"votes": 14744,
+			"__v": 0,
+			"candidatePic": "/imgs/candidates/45-fernandoHenriqueCardoso.webp",
+			"viceCandidatePic": "/imgs/viceCandidates/45-marcoMaciel.webp"
 		},
 		{
 			"_id": "66e48739d80de38d06646076",
@@ -101,8 +117,10 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"viceName": "Aloizio Mercadante",
 			"party": "PT",
 			"partyNumber": 13,
-			"votes": 0,
-			"__v": 0
+			"votes": 9874,
+			"__v": 0,
+			"candidatePic": "/imgs/candidates/13-luizInacioLulaDaSilva.webp",
+			"viceCandidatePic": "/imgs/viceCandidates/13-aloizioMercadante.webp"
 		},
 		{
 			"_id": "66e48c4e58b0269873dac4e5",
@@ -110,8 +128,10 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"viceName": "Dílton Carlos Salomoni",
 			"party": "PRN",
 			"partyNumber": 36,
-			"votes": 0,
-			"__v": 0
+			"votes": 128,
+			"__v": 0,
+			"candidatePic": "/imgs/candidates/36-carlosAntônioGomes.webp",
+			"viceCandidatePic": "/imgs/viceCandidates/36-díltonCarlosSalomoni.webp"
 		},
 		{
 			"_id": "66e48ed058b0269873dac4e7",
@@ -119,8 +139,10 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"viceName": "Gardênia Gonçalves",
 			"party": "PPR",
 			"partyNumber": 11,
-			"votes": 0,
-			"__v": 0
+			"votes": 438,
+			"__v": 0,
+			"candidatePic": "/imgs/candidates/11-esperidiãoAmin.webp",
+			"viceCandidatePic": "/imgs/viceCandidates/11-gardêniaGonçalves.webp"
 		},
 		{
 			"_id": "66e48eec58b0269873dac4e9",
@@ -128,8 +150,10 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"viceName": "Vítor Jorge Abdala Nósseis",
 			"party": "PSC",
 			"partyNumber": 20,
-			"votes": 0,
-			"__v": 0
+			"votes": 72,
+			"__v": 0,
+			"candidatePic": "/imgs/candidates/20-hernaniGoulartFortuna.webp",
+			"viceCandidatePic": "/imgs/viceCandidates/20-vítorJorgeAbdalaNósseis.webp"
 		},
 		{
 			"_id": "66e48f0858b0269873dac4eb",
@@ -137,8 +161,10 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"viceName": "Darcy Ribeiro",
 			"party": "PDT",
 			"partyNumber": 12,
-			"votes": 0,
-			"__v": 0
+			"votes": 1005,
+			"__v": 0,
+			"candidatePic": "/imgs/candidates/12-leonelBrizola.webp",
+			"viceCandidatePic": "/imgs/viceCandidates/12-darcyRibeiro.webp"
 		},
 		{
 			"_id": "66e48f5858b0269873dac4ee",
@@ -146,8 +172,10 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"viceName": "Iris de Araújo",
 			"party": "PMDB",
 			"partyNumber": 15,
-			"votes": 0,
-			"__v": 0
+			"votes": 335,
+			"__v": 0,
+			"candidatePic": "/imgs/candidates/15-orestesQuércia.webp",
+			"viceCandidatePic": "/imgs/viceCandidates/15-irisDeAraújo.webp"
 		},
 		{
 			"_id": "66e4903b58b0269873dac4f4",
@@ -155,8 +183,10 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"viceName": "Roberto Gama",
 			"party": "PRONA",
 			"partyNumber": 56,
-			"votes": 0,
-			"__v": 0
+			"votes": 566,
+			"__v": 0,
+			"candidatePic": "/imgs/candidates/56-eneasCarneiro.webp",
+			"viceCandidatePic": "/imgs/viceCandidates/56-robertoGama.webp"
 		},
 		{
 			"_id": "66e4a1877173354212c25a45",
@@ -165,11 +195,30 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"party": "PBDDM",
 			"partyNumber": 19,
 			"votes": 0,
+			"__v": 0,
+			"candidatePic": "/imgs/candidates/19-aldenouraDeSaPorto.webp",
+			"viceCandidatePic": "/imgs/viceCandidates/19-ninaMariaAlexin.webp"
+		},
+		{
+			"_id": "66eae7b7e7ebfb784ba7a375",
+			"name": "VOTO EM BRANCO",
+			"party": "BRANCO",
+			"partyNumber": 0,
+			"votes": 4,
+			"__v": 0
+		},
+		{
+			"_id": "66eaeadbe7ebfb784ba7a378",
+			"name": "VOTO NULO",
+			"party": "NULO",
+			"partyNumber": 999,
+			"votes": 0,
 			"__v": 0
 		}
 	]
 }
 ```
+> Inserir de preferência o ***partyNumber*** dos votos em Branco ou nulos um número com mais digitos do que os dos candidatos.
 
 <span style = "color:#FF0000; font-weight: bold">Erro Interno do Servidor! 500</span><br>
 Caso essa resposta aconteça, significa que ocorreu um erro interno no servidor.
@@ -206,8 +255,10 @@ Caso essa resposta aconteça, você vai receber as informações da chapa de can
 		"viceName": "Iris de Araújo",
 		"party": "PMDB",
 		"partyNumber": 15,
-		"votes": 0,
-		"__v": 0
+		"votes": 335,
+		"__v": 0,
+		"candidatePic": "/imgs/candidates/15-orestesQuércia.webp",
+		"viceCandidatePic": "/imgs/viceCandidates/15-irisDeAraújo.webp"
 	}
 }
 ```
@@ -266,8 +317,10 @@ Caso essa resposta aconteça, você vai receber as informações da chapa de can
 		"viceName": "Roberto Gama",
 		"party": "PRONA",
 		"partyNumber": 56,
-		"votes": 0,
-		"__v": 0
+		"votes": 566,
+		"__v": 0,
+		"candidatePic": "/imgs/candidates/56-eneasCarneiro.webp",
+		"viceCandidatePic": "/imgs/viceCandidates/56-robertoGama.webp"
 	}
 }
 ```
@@ -372,9 +425,12 @@ Esse endpoint é responsável por atualizar o número de votos de uma chapa de c
 /candidate/66e48371d65bab42cbeecb61/votes
 
 {
-	"votes": 14.744
+	"votes": 14744
 }
 ```
+
+> [!CAUTION]
+> Inserir números sem pontos ou virgulas.
 
 #### Respostas:
 <span style = "color:#00FF00; font-weight: bold">OK! 200</span><br>
@@ -424,9 +480,12 @@ Esse endpoint é responsável por atualizar o número de votos de uma chapa de c
 /candidate/partyNumber/13/votes
 
 {
-	"votes": 9.872
+	"votes": 9872
 }
 ```
+
+> [!CAUTION]
+> Inserir números sem pontos ou virgulas.
 
 #### Respostas:
 <span style = "color:#00FF00; font-weight: bold">OK! 200</span><br>
