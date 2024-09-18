@@ -60,7 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
             
             // Opcional: Limpa os outros campos de input para simular o voto em branco
             document.getElementById('firstPartyNumber').value = '';
-            document.getElementById('secondPartyNumber').value = '';
+            document.getElementById('secondPartyNumber').value = '0';
+            document.getElementById('secondPartyNumber').style.color = 'transparent';
             document.getElementById('firstPartyNumber').classList.remove('blinking');
             document.getElementById('secondPartyNumber').classList.remove('blinking');
             document.getElementById('partyNumber').classList.remove('borderOn');
@@ -88,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
             firstInput.focus();
             firstInput.value = "";
             secondInput.value = "";
+            document.getElementById('secondPartyNumber').style.color = '#000000';
             document.getElementById('candidateName').value = "";
             document.getElementById('partyName').value = "";
             document.getElementById('viceCandidateName').value = "";

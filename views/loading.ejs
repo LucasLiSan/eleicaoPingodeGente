@@ -1,0 +1,14 @@
+<%- include ('partials/header.ejs') %>
+            <main>
+                <section class="loading">
+                    <span>COMPUTANDO</span>
+                    <div class="progress-bar"></div>
+                </section>
+            </main>
+            <script>
+                // Função para redirecionar após 4 segundos
+                setTimeout(function() {
+                    window.location.href = "/end";
+                }, 1900); // 2500 milissegundos = 1 segundos e 9 milesimos
+            </script>
+        <%- include ('partials/footer.ejs') %>

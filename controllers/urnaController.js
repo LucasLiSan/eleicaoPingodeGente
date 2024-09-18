@@ -29,11 +29,30 @@ const processVote = async (req, res) => {
 
         await CandidateService.updateVotesByPartyNumber(partyNumber, 1);
 
-        res.status(200).json({ Success: `Votos do candidato '${existingCandidate.name}' atualizados com sucesso.` });
+        // Redireciona para a página de loading após a atualização
+        res.redirect('/loading');
     } catch (error) {
         console.log(error);
         res.status(500).json({ err: 'Erro interno do servidor.' });
     }
-};
+}
 
-export default { urna, processVote };
+const loadingScreen = async (req, res) => {
+    try {
+        res.render('loading');
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Erro ao carregar a pagina de loading');
+    }
+}
+
+const endScreen = async (req, res) => {
+    try {
+        res.render('end');
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Erro ao carregar a pagina final');
+    }
+}
+
+export default { urna, processVote, loadingScreen, endScreen };

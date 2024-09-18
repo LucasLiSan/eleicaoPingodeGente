@@ -1,0 +1,13 @@
+<%- include ('partials/header.ejs') %>
+            <main>
+                <section class="end">
+                    <span>FIM</span>
+                </section>
+            </main>
+            <script>
+                // Função para redirecionar após 4 segundos
+                setTimeout(function() {
+                    window.location.href = "/urna";
+                }, 2000); // 2500 milissegundos = 1 segundos e 9 milesimos
+            </script>
+        <%- include ('partials/footer.ejs') %>

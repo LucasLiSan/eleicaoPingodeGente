@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-    <html lang="pt-br">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="/css/style.css">
-            <title>URNA ELETRÔNICA</title>
-        </head>
-        <body>
+<%- include ('partials/header.ejs') %>
             <main>
                 <section class="infos">
                     <div class="head">
@@ -26,7 +18,7 @@
                             <div class="partyNumber borderOn" id="partyNumber">
                                 <input type="text" name="firstPartyNumber" id="firstPartyNumber" class="partyNumbers ">
                                 <input type="text" name="secondPartyNumber" id="secondPartyNumber" class="partyNumbers ">
-                                <input type="text" name="partyNumber" id="partyNumberAll" readonly>
+                                <input type="text" name="partyNumber" id="partyNumberAll" hidden readonly>
                             </div>
                             <input type="text" name="name" id="blankVote" value="VOTO EM BRANCO" disabled>
                             <input type="text" name="name" id="candidateName" disabled>
@@ -54,11 +46,5 @@
                         <figcaption>Vice Candidato</figcaption>
                     </figure>
                 </section>
-                <section class="loading">
-                    <span>COMPUTANDO</span>
-                    <div class="progress-bar"></div>
-                </section>
             </main>
-        </body>
-        <script src="/js/script.js"></script>
-    </html>
+        <%- include ('partials/footer.ejs') %>

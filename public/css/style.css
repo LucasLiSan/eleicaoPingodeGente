@@ -195,10 +195,10 @@ main {
 .viceCandidate img { width: 100%; }
 
 .loading {
-    width: 790px;
+    width: 800px;
     height: 590px;
     position: relative;
-    display: none;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
@@ -216,14 +216,33 @@ main {
 
 .loading .progress-bar{
    position: relative;
+   left: 200px;
    height: 35px;
    background-color: #0fd439;
-   animation: progress-animation 5s infinite;
+   animation: progress-animation 2s infinite;
 }
 
 @keyframes progress-animation{
     0% { width: 0%; } 
-    100% { width: 100%}
+    100% { width: 50%}
+}
+
+.end {
+    width: 800px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.end span {
+    width: 750px;
+    height: 550px;
+    font-size: 12rem;
+    font-weight: bold;
+    text-align: center;
+    align-content: center;
 }
 
 /* ----- RESPOSIVIDADE ----- */
