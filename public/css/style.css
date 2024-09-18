@@ -94,6 +94,14 @@ main {
     color: #000000;
 }
 
+#blankVote {
+    display: none;
+    font-size: 2.5rem;
+    width: 100%;
+    height: 35px;
+    color: #4c4c4c;
+}
+
 .partyNumber {
     display: flex;
     height: 35px;
@@ -106,9 +114,16 @@ main {
     width: 40px;
     height: 60px;
     text-align: center;
-    border: solid 1px #000000;
     margin-left: 10px;
     font-size: 3.5rem;
+}
+
+.borderOn input {
+    border: solid 1px #000000;
+}
+
+.borderOff input {
+    border: none
 }
 
 .blinking {
@@ -178,6 +193,38 @@ main {
 }
 
 .viceCandidate img { width: 100%; }
+
+.loading {
+    width: 790px;
+    height: 590px;
+    position: relative;
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.loading span {
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.loading .progress-bar{
+   position: relative;
+   height: 35px;
+   background-color: #0fd439;
+   animation: progress-animation 5s infinite;
+}
+
+@keyframes progress-animation{
+    0% { width: 0%; } 
+    100% { width: 100%}
+}
 
 /* ----- RESPOSIVIDADE ----- */
 

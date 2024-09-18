@@ -106,9 +106,12 @@ const createNewCandidate = async (req, res) => {
     const updateVotesByPartyNumber = async (req, res) => {
         try {
             const { partyNumber } = req.params;
-            const { votes } = req.body;
+            const { votes = 1 } = req.body;
+
             const existingCandidate = await CandidateService.getByPartyNumber(partyNumber);
+
             if (!existingCandidate) { return res.status(404).json({ err: 'Candidato não encontrado.' }); } // Código Status 404: Not Found
+
             await CandidateService.updateVotesByPartyNumber(partyNumber, votes);
             res.status(200).json({ Success: `Votos do candidato '${existingCandidate.name}' atualizados com sucesso.` }); // Código Status 200: OK
         } catch (error) {

@@ -4,7 +4,6 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="/css/style.css">
-            <script src="/js/script.js"></script>
             <title>URNA ELETRÔNICA</title>
         </head>
         <body>
@@ -16,7 +15,7 @@
                     <div class="role">
                         <h1>Candidatura</h1>
                     </div>
-                    <form class="candidatesInfos">
+                    <form action="/urna/vote" method="POST" class="candidatesInfos">
                         <div class="labels">
                             <label for="partyNumber">Número:</label>
                             <label for="name">Nome:</label>
@@ -24,14 +23,17 @@
                             <label for="viceName">Vice-Candidato:</label>
                         </div>
                         <div class="inputs">
-                            <div class="partyNumber">
-                                <input type="text" name="partyNumber" id="firstPartyNumber" class="partyNumbers">
-                                <input type="text" name="partyNumber" id="secondPartyNumber" class="partyNumbers">
+                            <div class="partyNumber borderOn" id="partyNumber">
+                                <input type="text" name="firstPartyNumber" id="firstPartyNumber" class="partyNumbers ">
+                                <input type="text" name="secondPartyNumber" id="secondPartyNumber" class="partyNumbers ">
+                                <input type="text" name="partyNumber" id="partyNumberAll" readonly>
                             </div>
+                            <input type="text" name="name" id="blankVote" value="VOTO EM BRANCO" disabled>
                             <input type="text" name="name" id="candidateName" disabled>
                             <input type="text" name="party" id="partyName" disabled>
                             <input type="text" name="viceName" id="viceCandidateName" disabled>
                         </div>
+                        <button type="submit" hidden>Confirmar Voto</button>
                     </form>
                     <div class="subtitles">
                         <span class="subHead">Aperte a tecla:</span>
@@ -52,6 +54,11 @@
                         <figcaption>Vice Candidato</figcaption>
                     </figure>
                 </section>
+                <section class="loading">
+                    <span>COMPUTANDO</span>
+                    <div class="progress-bar"></div>
+                </section>
             </main>
         </body>
+        <script src="/js/script.js"></script>
     </html>
