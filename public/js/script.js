@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
             labels.style.display = 'none';
             subtitles.style.display = 'none';
             pics.style.display = 'none';
-            loading.style.display = 'none';
         }
     }
 
@@ -56,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
             candidateNameInput.style.display = 'none';
 
             // Define "0" no campo partyNumberAll para identificar o voto em branco
-            document.getElementById('partyNumberAll').value = '0';
+            document.getElementById('partyNumberAll').value = '111';
             
             // Opcional: Limpa os outros campos de input para simular o voto em branco
             document.getElementById('firstPartyNumber').value = '';
@@ -84,6 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const candidateNameInput = document.getElementById('candidateName');
             blankVoteInput.style.display = 'none';
             candidateNameInput.style.display = 'block';
+            document.getElementById('nullVote').style.display ='none';
+            document.getElementById('null').style.display ='none';
 
             // Limpa ambos os inputs
             firstInput.focus();
@@ -98,6 +99,8 @@ document.addEventListener("DOMContentLoaded", function () {
             secondInput.classList.remove("blinking");
             document.getElementById('partyNumber').classList.add('borderOn');
             document.getElementById('partyNumber').classList.remove('borderOff');
+
+            
 
             // Verifica novamente para atualizar os displays
             checkInputs();
@@ -156,7 +159,27 @@ document.getElementById('secondPartyNumber').addEventListener('input', async fun
                 document.querySelector('.labels').style.display = 'flex';
                 document.querySelector('.subtitles').style.display = 'grid';
                 document.querySelector('.pics').style.display = 'flex';
-            } else { console.log(data.err); } // Se o candidato não for encontrado
+
+                document.querySelector('.candidate').style.display = 'block';
+                document.querySelector('.piviceCandidatecs').style.display = 'block';
+
+            } else {
+                document.getElementById('nullVote').style.display ='flex';
+                document.getElementById('null').style.display ='flex';
+
+                document.getElementById('candidateName').value = '';
+                document.getElementById('partyName').value = '';
+                document.getElementById('viceCandidateName').value = '';
+                document.getElementById('partyNumberAll').value = 999;
+
+                document.querySelector('.labels').style.display = 'flex';
+                document.querySelector('.subtitles').style.display = 'grid';
+                document.querySelector('.pics').style.display = 'flex';
+
+                document.querySelector('.candidate').style.display = 'none';
+                document.querySelector('.viceCandidate').style.display = 'none';
+
+            } // Se o candidato não for encontrado
         } catch (error) { console.error('Erro ao buscar o candidato:', error); }
     }
 });

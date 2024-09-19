@@ -1,13 +1,11 @@
 /* --------- FOCUS/HOVER/ACTIVE EFFECT --------- */
-.partyNumbers:focus {
-    outline: none;
-}
+.partyNumbers:focus { outline: none; }
 
 /* --------- CSS PADRÃO --------- */
 body {
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
     background: #C2C2C2;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
@@ -102,6 +100,14 @@ main {
     color: #4c4c4c;
 }
 
+#nullVote {
+    display: none;
+    font-size: 2rem;
+    width: 100%;
+    height: 35px;
+    color: #000000;
+}
+
 .partyNumber {
     display: flex;
     height: 35px;
@@ -118,17 +124,11 @@ main {
     font-size: 3.5rem;
 }
 
-.borderOn input {
-    border: solid 1px #000000;
-}
+.borderOn input { border: solid 1px #000000; }
+.borderOff input { border: none }
 
-.borderOff input {
-    border: none
-}
 
-.blinking {
-    animation: blink-border 1s infinite;
-}
+.blinking { animation: blink-border 1s infinite; }
 
 @keyframes blink-border {
     0% { border-color: #000000; }
@@ -136,13 +136,16 @@ main {
     100% { border-color: #000000; }
 }
 
-.null {
+#null {
     position: relative;
-    width: 500px;
-    height: 100px;
+    bottom: 165px;
+    left: 155px;
+    width: 385px;
+    height: 70px;
+    display: none;
     font-size: 4rem;
-    color: #a4a4a4;
-    top: 450px;
+    color: #000000;
+    text-align: center;
 }
 
 .subtitles {
@@ -159,18 +162,14 @@ main {
     height: 20px;
 }
 
-.subHead {
-    text-align: right;
-}
+.subHead { text-align: right; }
 
 .subtitlesLeft {
     margin-right: 20px;
     text-align: right;
 }
 
-.subtitlesRight {
-    text-align: left;
-}
+.subtitlesRight { text-align: left; }
 
 .pics {
     width: 100%;
@@ -186,8 +185,8 @@ main {
 .candidate {
     width: 60%;
     height: 40%;
+    display: block;
     text-align: center;
-    border: #000000 1px solid;
     text-transform: uppercase;
 }
 
@@ -196,8 +195,8 @@ main {
 .viceCandidate {
     width: 55%;
     height: 37%;
+    display: block;
     text-align: center;
-    border: #000000 1px solid;
     text-transform: uppercase;
 }
 
@@ -258,4 +257,22 @@ main {
 
 @media (width < 800px ) {
     body { overflow: auto; }
+
+    main { 
+        position: relative;
+        left: 15px;
+        min-width: 800px;
+    }
+}
+
+@media (width < 426px ) {
+    main { left: 195px; }
+}
+
+@media (width < 376px ) {
+    main { left: 215px; }
+}
+
+@media (width < 350px ) {
+    main { left: 250px; }
 }

@@ -39,10 +39,10 @@ app.use('/', urnaRoutes);
 
 /* ----------\/ INICIANDO SERVIDOR \/---------- */
 const port = 8080;
-//const myServer = ip.address();
-//console.log(myServer);
+const myServer = ip.address();
+console.log(myServer);
 
-app.listen(port, (error) => {
+app.listen(port, myServer, (error) => {
     if(error) {console.log(error); }
     console.log(`API rodando em http://localhost:${port}.`);
 });
