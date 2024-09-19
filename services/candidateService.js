@@ -65,15 +65,28 @@ class CandidateService {
         }
 
         /* --- Método UPDATE VOTES: partyNumber --- */
-        async updateVotesByPartyNumber(partyNumber, voteIncrement) {
+        async updateVotesByPartyNumber(partyNumber, voteIncrement, roomNumber) {
             try {
-                await Candidate.findOneAndUpdate(
-                    { partyNumber: partyNumber },
-                    { $inc: { votes: voteIncrement } },
-                    { new: true }
-                );
-                console.log(`Votos atualizados para o candidato com partyNumber: ${partyNumber}`);
-            } catch (error) { console.log(error); }
+                const candidate = await Candidate.findOne({ partyNumber });
+        
+                if (candidate) {
+                    // Atualizar o total de votos
+                    candidate.votes += voteIncrement;
+        
+                    // Atualizar votos por sala
+                    if (candidate.votesByRoom.has(roomNumber)) {
+                        candidate.votesByRoom.set(roomNumber, candidate.votesByRoom.get(roomNumber) + voteIncrement);
+                    } else {
+                        candidate.votesByRoom.set(roomNumber, voteIncrement);
+                    }
+        
+                    await candidate.save();
+                    console.log(`Votos atualizados para o candidato com partyNumber: ${partyNumber} na sala: ${roomNumber}`);
+                }
+            } catch (error) {
+                console.log(error);
+                throw new Error('Erro ao atualizar votos por número do partido e sala.');
+            }
         }
 
     /* ----- Método DELETAR ----- */

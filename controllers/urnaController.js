@@ -16,6 +16,7 @@ const urna = async (req, res) => {
 const processVote = async (req, res) => {
     try {
         const { partyNumber } = req.body;
+        const roomNumber = '2'; //Editado manualmente
 
         if (!partyNumber) {
             return res.status(400).json({ err: 'Número de partido ou voto em branco não preenchido!' });
@@ -27,7 +28,7 @@ const processVote = async (req, res) => {
             return res.status(404).json({ err: 'Candidato não encontrado.' });
         }
 
-        await CandidateService.updateVotesByPartyNumber(partyNumber, 1);
+        await CandidateService.updateVotesByPartyNumber(partyNumber, 1, roomNumber);
 
         // Redireciona para a página de loading após a atualização
         res.redirect('/loading');

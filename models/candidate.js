@@ -10,6 +10,11 @@ const candidateSchema = new mongoose.Schema({
     votes: {
         type: Number,
         default: 0
+    },
+    votesByRoom: {
+        type: Map,
+        of: Number,
+        default: {}
     }
 });
 
