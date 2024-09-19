@@ -1,14 +1,32 @@
 <%- include ('partials/header.ejs') %>
-            <main>
-                <section class="loading">
-                    <span>COMPUTANDO</span>
-                    <div class="progress-bar"></div>
-                </section>
-            </main>
-            <script>
-                // Função para redirecionar após 4 segundos
-                setTimeout(function() {
-                    window.location.href = "/end";
-                }, 1900); // 2500 milissegundos = 1 segundos e 9 milesimos
-            </script>
+                <main>
+                    <section class="loading">
+                        <span>COMPUTANDO</span>
+                        <div class="progress-bar"></div>
+                    </section>
+                </main>
+                <script>
+                    const enterSound = new Audio('/audios/confirmaUrna.mp3');
+
+                    // Pré-carrega o áudio quando a página é carregada
+                    document.addEventListener("DOMContentLoaded", function() {
+                        enterSound.load(); // Pré-carrega o som para evitar atrasos
+                    });
+
+                    // Função para tocar o som
+                    function playEnterSound() {
+                        enterSound.currentTime = 0; // Reinicia o som
+                        enterSound.play().catch((error) => {
+                            console.error("Erro ao tentar reproduzir o áudio:", error);
+                        });
+                    }
+
+                    // Função para redirecionar após 1,9 segundos
+                    setTimeout(function() {
+                        playEnterSound();
+                        setTimeout(function() {
+                            window.location.href = "/end";
+                        }, 2000); // Espera 2 segundos para redirecionar
+                    }, 100); // 1,9 segundos de atraso para tocar o som
+                </script>
         <%- include ('partials/footer.ejs') %>

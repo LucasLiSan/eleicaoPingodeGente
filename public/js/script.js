@@ -5,11 +5,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const labels = document.querySelector('.labels');
     const subtitles = document.querySelector('.subtitles');
     const pics = document.querySelector('.pics');
-    const loading = document.querySelector('.loading');
+
+    const keySound = new Audio('/audios/teclaUrna.mp3');
 
     // Adiciona a classe de piscando ao primeiro input
     firstInput.classList.add("blinking");
     firstInput.focus();
+
+    // Função para tocar o som
+    function playKeySound() {
+        keySound.currentTime = 0; // Reinicia o som
+        keySound.play(); // Toca o som
+    }
 
     // Função para verificar se ambos os inputs estão preenchidos
     function checkInputs() {
@@ -29,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Detecta quando o usuário digita algo no primeiro input
     firstInput.addEventListener("input", function () {
         if (firstInput.value.length > 0) {
+            playKeySound();
             firstInput.classList.remove("blinking");
             // Só foca no segundo input se o primeiro estiver completamente preenchido
             if (firstInput.value.length === 1) {
@@ -41,13 +49,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Detecta quando o usuário digita algo no segundo input
     secondInput.addEventListener("input", function () {
-        if (secondInput.value.length > 0) { secondInput.classList.remove("blinking"); }
+        if (secondInput.value.length > 0) {
+            playKeySound();
+            secondInput.classList.remove("blinking");
+        }
         checkInputs();
     });
 
     firstInput.addEventListener("keydown", function(event) {
         // Verifica se a tecla pressionada foi a seta para a direita
         if (event.key === "ArrowRight") {
+            playKeySound();
             // Exibe o campo de "VOTO EM BRANCO"
             const blankVoteInput = document.getElementById('blankVote');
             const candidateNameInput = document.getElementById('candidateName');
@@ -99,8 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
             secondInput.classList.remove("blinking");
             document.getElementById('partyNumber').classList.add('borderOn');
             document.getElementById('partyNumber').classList.remove('borderOff');
-
-            
 
             // Verifica novamente para atualizar os displays
             checkInputs();
@@ -161,7 +171,7 @@ document.getElementById('secondPartyNumber').addEventListener('input', async fun
                 document.querySelector('.pics').style.display = 'flex';
 
                 document.querySelector('.candidate').style.display = 'block';
-                document.querySelector('.piviceCandidatecs').style.display = 'block';
+                document.querySelector('.viceCandidate').style.display = 'block';
 
             } else {
                 document.getElementById('nullVote').style.display ='flex';

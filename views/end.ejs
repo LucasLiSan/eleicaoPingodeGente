@@ -5,9 +5,25 @@
                 </section>
             </main>
             <script>
-                // Função para redirecionar após 4 segundos
+                const endSound = new Audio('/audios/fimUrna.mp3');
+
+                // Pré-carrega o áudio quando a página é carregada
+                document.addEventListener("DOMContentLoaded", function() {
+                    endSound.load(); // Pré-carrega o som para evitar atrasos
+                });
+
+                // Função para tocar o som
+                function playEndSound() {
+                    endSound.currentTime = 0; // Reinicia o som
+                    endSound.play().catch((error) => { console.error("Erro ao tentar reproduzir o áudio:", error); });
+                }
+
+                // Função para redirecionar após 1,9 segundos
                 setTimeout(function() {
-                    window.location.href = "/urna";
-                }, 2000); // 2500 milissegundos = 1 segundos e 9 milesimos
+                    playEndSound();
+                    setTimeout(function() {
+                        window.location.href = "/urna";
+                    }, 2000); // Espera 2 segundos para redirecionar
+                }, 100); // 1,9 segundos de atraso para tocar o som
             </script>
         <%- include ('partials/footer.ejs') %>
