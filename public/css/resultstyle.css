@@ -1,0 +1,20 @@
+@import url('https://fonts.cdnfonts.com/css/recoleta');
+@import url('https://fonts.cdnfonts.com/css/bogart');
+
+:root {
+    --colorOne: #612C8A;
+    --colorTwo: #FF3366;
+    --colorThree: #F4C301;
+    --fontBody: 'Recoleta', sans-serif;
+    --fontTitle: 'Bogart', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #FFFFFF;
+}
+

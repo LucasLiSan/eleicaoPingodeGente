@@ -56,4 +56,4 @@ const endScreen = async (req, res) => {
     }
 }
 
-export default { urna, processVote, loadingScreen, endScreen };
+export default { urna, processVote, loadingScreen, endScreen }
