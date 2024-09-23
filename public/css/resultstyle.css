@@ -1,11 +1,22 @@
 @import url('https://fonts.cdnfonts.com/css/recoleta');
 @import url('https://fonts.cdnfonts.com/css/bogart');
+@import url(https://db.onlinewebfonts.com/c/794a0de6a529290274465576a9a6990b?family=Block+Berthold+Regular);
+@import url('https://fonts.cdnfonts.com/css/lexend');
+
+/* ----- HOVER/ACTIVE/FOCUS EFFECT ----- */
+.gitHub li:hover { border-bottom: 5px solid #000000; }
+.instagram li:hover { border-bottom: 5px solid #F58529; }
+.whatsapp li:hover { border-bottom: 5px solid #25D366; }
+
+.infos h3:hover { border-bottom: 5px solid #0000FF; }
+
+/* ----- HOVER/ACTIVE/FOCUS EFFECT ----- */
 
 :root {
     --colorOne: #612C8A;
     --colorTwo: #FF3366;
     --colorThree: #F4C301;
-    --fontBody: 'Recoleta', sans-serif;
+    --fontBody: 'Lexend', sans-serif;;
     --fontTitle: 'Bogart', sans-serif;
 }
 
@@ -15,6 +26,182 @@
 }
 
 body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    font-family: var(--fontBody);
     background: #FFFFFF;
 }
 
+header {
+    width: 100%;
+    height: 10rem;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template:
+        "cabecalho" 70%
+        "nav" 30%
+        / 100%
+    ;
+}
+
+.cabecalho {
+    grid-area: cabecalho;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.logo {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+}
+
+.logo img { width: 45%; }
+
+.headerSocial {
+    width: 40%;
+    height: 100%;
+}
+
+.headerSocial-links {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+.headerSocial-links a {
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    align-content: center;
+    text-decoration: none;
+    color: #000000;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+nav {
+    grid-area: nav;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    background: var(--colorTwo);
+}
+
+nav label {
+    width: 15%;
+    height: 60%;
+    text-align: center;
+    align-content: end;
+}
+
+nav input[type="radio"] { display:none; }
+
+nav input[type="radio"]:checked + label {
+    font-weight: bold;
+    color: var(--colorThree);
+    border-bottom: solid 2px var(--colorThree);
+}
+
+main {
+    width: 100%;
+    height: 80%;
+    background: #F4C301;
+    display: flex;
+}
+
+.general {
+}
+
+.analysis {
+    display: none;
+}
+
+footer {
+    width: 100%;
+    height: 10rem;
+    display: grid;
+    grid-template:
+       "infos social" 100% 
+       / 80% 20%
+    ;
+}
+
+.infos {
+    grid-area: infos;
+    display: flex;
+}
+
+.project {
+    margin: 0 45px;
+    align-content: center;
+    text-align: justify;
+}
+
+.urnaAviso {
+    margin: 0 20px;
+    padding: 15px 15px;
+    align-content: center;
+    text-align: justify;
+    background: var(--colorTwo);
+}
+
+.infos h3 {
+    width: 63%;
+    font-family: "Block Berthold Regular";
+}
+
+.infos a {
+    text-decoration: none;
+    color: var(--colorOne);
+    font-size: 1.5rem;
+}
+
+.footerSocial {
+    grid-area: social;
+}
+
+.footerSocial-links {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerSocial-links a {
+    width: 70%;
+    height: 20%;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}

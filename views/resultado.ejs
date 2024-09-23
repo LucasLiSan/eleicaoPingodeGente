@@ -7,7 +7,150 @@
             <title>RESULTADO ELEIÇÃO - 2024</title>
         </head>
         <body>
-            <h1>RECOLETA FONT Recoleta Font</h1>
-            <h2>BOGART FONT</h2>
+            <header>
+                <div class="cabecalho">
+                    <div class="logo">
+                        <img src="/imgs/Logo2(FundoTransparente-Cabecalho-Logo-Escrita).webp" alt="">
+                    </div>
+                    <div class="headerSocial">
+                        <ul class="headerSocial-links">
+                            <a class="gitHub" href="https://github.com/LucasLiSan/eleicaoPingodeGente"><li>github</li></a>
+                            <a class="instagram" href="https://www.instagram.com/lukastopo/"><li>instagram</li></a>
+                            <a class="whatsapp" href=""><li>whatsapp</li></a>
+                        </ul>
+                    </div>
+                </div>
+                <nav>
+                    <input type="radio" name="optAnalysis" id="general" value="geral">
+                    <label for="general">GERAL</label>
+                    <input type="radio" name="optAnalysis" id="analysis" value="analise">
+                    <label for="analysis">ANALISE POR SALA</label>
+                </nav>
+            </header>
+            <main>
+                <section class="general">
+                    <h1>CANDIDATO</h1>
+                    <div class="apuracao">
+                        <span class="percent">30%</span><span>URNAS APURADAS</span>
+                        <progress value="30" max="100"></progress>
+                    </div>
+                    <div class="absentee-votes">
+                        <div class="votesTotal">
+                            <span class="votesPercent">80%</span>
+                            <label for="votesPercent">VOTANTES</label>
+                        </div>
+                        <div class="absentee">
+                            <span class="absenteePercent">20%</span>
+                            <label for="absenteePercent">AUSENTES</label>
+                        </div>
+                    </div>
+                    <div class="candidates">
+                        <div id="first">
+                            <figure class="img-first">
+                                <img src="" alt="Candidato-1">
+                                <figcaption>1º LUGAR</figcaption>
+                            </figure>
+                            <div class="name-party">
+                                <input type="text" name="Candidato" id="candidato-First">
+                                <input type="text" name="Party" id="party-First">
+                            </div>
+                            <div class="votesCandidate">
+                                <span class="percentVotes">100%</span>
+                                <input type="number" name="votes" id="qtdVotes1">
+                            </div>
+                        </div>
+                        <div id="second">
+                            <figure class="img-second">
+                                <img src="" alt="Candidato-2">
+                                <figcaption>2º LUGAR</figcaption>
+                            </figure>
+                            <div class="name-party">
+                                <input type="text" name="Candidato" id="candidato-Second">
+                                <input type="text" name="Party" id="party-Second">
+                            </div>
+                            <div class="votesCandidate">
+                                <span class="percentVotes">90%</span>
+                                <input type="number" name="votes" id="qtdVotes2">
+                            </div>
+                        </div>
+                        <div id="third">
+                            <figure class="img-third">
+                                <img src="" alt="Candidato-3">
+                                <figcaption>3º LUGAR</figcaption>
+                            </figure>
+                            <div class="name-party">
+                                <input type="text" name="Candidato" id="candidato-Third">
+                                <input type="text" name="Party" id="party-Third">
+                            </div>
+                            <div class="votesCandidate">
+                                <span class="percentVotes">80%</span>
+                                <input type="number" name="votes" id="qtdVotes3">
+                            </div>
+                        </div>
+                        <div id="fourth">
+                            <figure class="img-fourth">
+                                <img src="" alt="Candidato-4">
+                                <figcaption>4º LUGAR</figcaption>
+                            </figure>
+                            <div class="name-party">
+                                <input type="text" name="Candidato" id="candidato-Fourth">
+                                <input type="text" name="Party" id="party-Fourth">
+                            </div>
+                            <div class="votesCandidate">
+                                <span class="percentVotes">70%</span>
+                                <input type="number" name="votes" id="qtdVotes4">
+                            </div>
+                        </div>
+                        <div id="fifth">
+                            <figure class="img-fifth">
+                                <img src="" alt="Candidato-5">
+                                <figcaption>5º LUGAR</figcaption>
+                            </figure>
+                            <div class="name-party">
+                                <input type="text" name="Candidato" id="candidato-Fifth">
+                                <input type="text" name="Party" id="party-Fifth">
+                            </div>
+                            <div class="votesCandidate">
+                                <span class="percentVotes">60%</span>
+                                <input type="number" name="votes" id="qtdVotes5">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="voteAnalysis">
+                        <div class="blank">
+                            <span class="percentVotes">50%</span>
+                            <input type="number" name="votes" id="qtdVotesBlank">
+                            <label for="qtdVotesNull">VOTOS EM BRANCO</label>
+                        </div>
+                        <div class="nulls">
+                            <span class="percentVotes">40%</span>
+                            <input type="number" name="votes" id="qtdVotesNull">
+                            <label for="qtdVotesNull">VOTOS NULOS</label>
+                        </div>
+                        <div class="valids">
+                            <span class="percentVotes">30%</span>
+                            <input type="number" name="votes" id="qtdVotesValids">
+                            <label for="qtdVotesNull">VOTOS VÁLIDOS</label>
+                        </div>
+                    </div>
+                </section>
+                <section class="analysis"></section>
+            </main>
+            <footer>
+                <div class="infos">
+                    <p class="project">Para simular uma eleição real para o "Projeto eleição" na EMEB Pingo de Gente, foi elaborada uma urna eletrônica seguindo os padrões do urna eletrônica brasileira e, para os resultados, uma pagina de apuração de votos.</p>
+                    <div class="urnaAviso">
+                        <h3><a href="https://www.justicaeleitoral.jus.br/urna-eletronica/"> URNA ELETRÔNICA DO BRASIL</a></h3>
+                        <p>O sistema de votação eletrônico brasileiro permite o exercício da cidadania com maior segurança. A urna foi desenvolvida para computar votos de forma segura e sigilosa, atendendo à demanda e às características específicas do Brasil.</p>
+                    </div>
+                </div>
+                <div class="footerSocial">
+                    <ul class="footerSocial-links">
+                        <a class="gitHub" href="https://github.com/LucasLiSan/eleicaoPingodeGente"><li>github</li></a>
+                        <a class="instagram" href="https://www.instagram.com/lukastopo/"><li>instagram</li></a>
+                        <a class="whatsapp" href=""><li>whatsapp</li></a>
+                    </ul>
+                </div>
+            </footer>
         </body>
     </html>
