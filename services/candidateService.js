@@ -50,6 +50,18 @@ class CandidateService {
             }
         }
 
+        /* --- Método LISTAR VOTOS NULOS --- */
+        async getNullVotes() {
+            const nullVoteCandidate = await Candidate.findOne({ name: "VOTO NULO" });
+            return nullVoteCandidate ? nullVoteCandidate.votes : 0; // Retorna o número de votos ou 0 se não existir
+        }
+
+        /* --- Método LISTAR VOTOS BRANCOS --- */
+        async getBlankVotes() {
+            const blankVoteCandidate = await Candidate.findOne({ name: "VOTO EM BRANCO" });
+            return blankVoteCandidate ? blankVoteCandidate.votes : 0; // Retorna o número de votos ou 0 se não existir
+        }
+
     /* ----- Método UPDATE ----- */
         /* --- Método UPDATE CANDIDATES: id --- */
         async updateCandidates(id, name, viceName, party, partyNumber, candidatePic, viceCandidatePic) {

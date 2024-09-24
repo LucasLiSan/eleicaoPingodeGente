@@ -450,4 +450,16 @@ footer {
     .logo img {
         width: 45%;
     }
+
+    #first, #second {
+        width: 45%;
+    }
+
+    footer {
+        height: 11rem;
+    }
+
+    .infos h3 {
+        width: 70%;
+    }
 }
