@@ -46,78 +46,46 @@
                     </div>
                     <div class="candidates">
                         <div class="moreVotes">
-                            <div id="first">
-                                <figure class="img-first">
-                                    <img src="/imgs/candidates/45-fernandoHenriqueCardoso.webp" alt="Candidato-1">
-                                    <figcaption>1º LUGAR</figcaption>
-                                </figure>
-                                <div class="name-party">
-                                    <input type="text" name="Candidato" id="candidato-First" value="FERNANDO HENRIQUE CARDOSO" disabled>
-                                    <input type="text" name="Party" id="party-First" value="PSDB" disabled>
+                            <% candidates.slice(0, 2).forEach((candidate, index) => { %>
+                                <div id="<%= index === 0 ? 'first' : 'second' %>">
+                                    <figure class="<%= index === 0 ? 'img-first' : 'img-second' %>">
+                                        <img src="<%= candidate.candidatePic %>" alt="Candidato-<%= index + 1 %>">
+                                        <figcaption><%= index + 1 %>º LUGAR</figcaption>
+                                    </figure>
+                                    <div class="name-party">
+                                        <input type="text" name="Candidato" id="candidato-<%= index === 0 ? 'First' : 'Second' %>" value="<%= candidate.name %>" disabled>
+                                        <input type="text" name="Party" id="party-<%= index === 0 ? 'First' : 'Second' %>" value="<%= candidate.party %>" disabled>
+                                    </div>
+                                    <div class="votesCandidate">
+                                        <% 
+                                            const percentage = totalVotes > 0 ? ((candidate.votes / totalVotes) * 100).toFixed(2) : 0;
+                                        %>
+                                        <span class="percentVotes"><%= percentage %>%</span>
+                                        <input type="number" name="votes" id="qtdVotes<%= index + 1 %>" value="<%= candidate.votes %>" disabled>
+                                    </div>
                                 </div>
-                                <div class="votesCandidate">
-                                    <span class="percentVotes">100%</span>
-                                    <input type="number" name="votes" id="qtdVotes1" value="14751" disabled>
-                                </div>
-                            </div>
-                            <div id="second">
-                                <figure class="img-second">
-                                    <img src="/imgs/candidates/13-luizInacioLulaDaSilva.webp" alt="Candidato-2">
-                                    <figcaption>2º LUGAR</figcaption>
-                                </figure>
-                                <div class="name-party">
-                                    <input type="text" name="Candidato" id="candidato-Second" value="LUIZ INACIO LULA DA SILVA" disabled>
-                                    <input type="text" name="Party" id="party-Second" value="PT" disabled>
-                                </div>
-                                <div class="votesCandidate">
-                                    <span class="percentVotes">90%</span>
-                                    <input type="number" name="votes" id="qtdVotes2" value="9884" disabled>
-                                </div>
-                            </div>
+                            <% }); %>
                         </div>
                         <div class="lessVotes">
-                            <div id="third">
-                                <figure class="img-third">
-                                    <img src="/imgs/candidates/12-leonelBrizola.webp" alt="Candidato-3">
-                                    <figcaption>3º LUGAR</figcaption>
-                                </figure>
-                                <div class="name-party">
-                                    <input type="text" name="Candidato" id="candidato-Third" value="LEONEL BRIZOLA" disabled>
-                                    <input type="text" name="Party" id="party-Third" value="PDT" disabled>
+                            <% candidates.slice(2, 5).forEach((candidate, index) => { %>
+                                <div id="<%= ['third', 'fourth', 'fifth'][index] %>">
+                                    <figure class="img-<%= ['third', 'fourth', 'fifth'][index] %>">
+                                        <img src="<%= candidate.candidatePic %>" alt="Candidato-<%= index + 3 %>">
+                                        <figcaption><%= index + 3 %>º LUGAR</figcaption>
+                                    </figure>
+                                    <div class="name-party">
+                                        <input type="text" name="Candidato" id="candidato-<%= ['Third', 'Fourth', 'Fifth'][index] %>" value="<%= candidate.name %>" disabled>
+                                        <input type="text" name="Party" id="party-<%= ['Third', 'Fourth', 'Fifth'][index] %>" value="<%= candidate.party %>" disabled>
+                                    </div>
+                                    <div class="votesCandidate">
+                                        <% 
+                                            const percentage = totalVotes > 0 ? ((candidate.votes / totalVotes) * 100).toFixed(2) : 0;
+                                        %>
+                                        <span class="percentVotes"><%= percentage %>%</span>
+                                        <input type="number" name="votes" id="qtdVotes<%= index + 3 %>" value="<%= candidate.votes %>" disabled>
+                                    </div>
                                 </div>
-                                <div class="votesCandidate">
-                                    <span class="percentVotes">80%</span>
-                                    <input type="number" name="votes" id="qtdVotes3" value="1011" disabled>
-                                </div>
-                            </div>
-                            <div id="fourth">
-                                <figure class="img-fourth">
-                                    <img src="/imgs/candidates/11-esperidiãoAmin.webp" alt="Candidato-4">
-                                    <figcaption>4º LUGAR</figcaption>
-                                </figure>
-                                <div class="name-party">
-                                    <input type="text" name="Candidato" id="candidato-Fourth" value="ESPERIDIÃO AMIN" disabled>
-                                    <input type="text" name="Party" id="party-Fourth" value="PPR" disabled>
-                                </div>
-                                <div class="votesCandidate">
-                                    <span class="percentVotes">70%</span>
-                                    <input type="number" name="votes" id="qtdVotes4" value="444" disabled>
-                                </div>
-                            </div>
-                            <div id="fifth">
-                                <figure class="img-fifth">
-                                    <img src="/imgs/candidates/36-carlosAntônioGomes.webp" alt="Candidato-5">
-                                    <figcaption>5º LUGAR</figcaption>
-                                </figure>
-                                <div class="name-party">
-                                    <input type="text" name="Candidato" id="candidato-Fifth" value="CARLOS ANTONIO GOMES" disabled>
-                                    <input type="text" name="Party" id="party-Fifth" value="PRN" disabled>
-                                </div>
-                                <div class="votesCandidate">
-                                    <span class="percentVotes">60%</span>
-                                    <input type="number" name="votes" id="qtdVotes5" value="139" disabled>
-                                </div>
-                            </div>
+                            <% }); %>
                         </div>
                     </div>
                     <div class="voteAnalysis">

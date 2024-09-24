@@ -39,6 +39,17 @@ class CandidateService {
             }
         }
 
+        /* --- Método LISTAR OS CINCO MAIS VOTADOS --- */
+        async getTopCandidates(limit = 5) {
+            try {
+                const candidates = await Candidate.find().sort({ votes: -1 }).limit(limit);
+                return candidates;
+            } catch (error) {
+                console.log(error);
+                throw new Error('Erro ao buscar os principais candidatos');
+            }
+        }
+
     /* ----- Método UPDATE ----- */
         /* --- Método UPDATE CANDIDATES: id --- */
         async updateCandidates(id, name, viceName, party, partyNumber, candidatePic, viceCandidatePic) {
