@@ -46,7 +46,6 @@
                     </div>
                 
                     <div class="candidates"> 
-                        <!-- 1º e 2º Lugar: .moreVotes -->
                         <div class="moreVotes">
                             <div id="first">
                                 <figure class="img-first">
@@ -77,8 +76,6 @@
                                 </div>
                             </div>
                         </div>
-                
-                        <!-- 3º, 4º e 5º Lugar: .lessVotes -->
                         <div class="lessVotes">
                             <div id="third">
                                 <figure class="img-third">
@@ -94,7 +91,6 @@
                                     <input type="number" id="qtdVotes3" value="<%= thirdCandidate.votes %>" disabled>
                                 </div>
                             </div>
-                
                             <div id="fourth">
                                 <figure class="img-fourth">
                                     <img src="<%= fourthCandidate.candidatePic %>" alt="Candidato-4">
@@ -109,7 +105,6 @@
                                     <input type="number" id="qtdVotes4" value="<%= fourthCandidate.votes %>" disabled>
                                 </div>
                             </div>
-                
                             <div id="fifth">
                                 <figure class="img-fifth">
                                     <img src="<%= fifthCandidate.candidatePic %>" alt="Candidato-5">
@@ -126,7 +121,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Cálculo de votos brancos, nulos e válidos -->
                     <div class="voteAnalysis">
                         <div class="blank">
                             <span class="percentVotes"><%= (votosBrancos / totalVotes * 100).toFixed(2) %>%</span>

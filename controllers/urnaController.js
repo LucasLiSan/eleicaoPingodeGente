@@ -3,6 +3,9 @@
 /* ----------\/ IMPORTAÇÃO DE MÓDULOS \/---------- */
 import CandidateService from "../services/candidateService.js";
 
+/* ----------\/ CONTROLLERS \/---------- */
+
+//Carregar a urna e as informações dos candidatos
 const urna = async (req, res) => {
     try {
         const candidates = await CandidateService.getAll();
@@ -13,10 +16,11 @@ const urna = async (req, res) => {
     }
 }
 
+//Processar os dados do voto e sessão
 const processVote = async (req, res) => {
     try {
         const { partyNumber } = req.body;
-        const roomNumber = '2'; //Editado manualmente
+        const roomNumber = '2'; //Sessão eleitoral. Editado manualmente
 
         if (!partyNumber) {
             return res.status(400).json({ err: 'Número de partido ou voto em branco não preenchido!' });
@@ -38,6 +42,7 @@ const processVote = async (req, res) => {
     }
 }
 
+//Carregar a pagina de loading
 const loadingScreen = async (req, res) => {
     try {
         res.render('loading');
@@ -47,6 +52,7 @@ const loadingScreen = async (req, res) => {
     }
 }
 
+//Carregar a pagina fim
 const endScreen = async (req, res) => {
     try {
         res.render('end');

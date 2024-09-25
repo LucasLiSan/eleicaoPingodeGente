@@ -1,30 +1,38 @@
 import CandidateService from "../services/candidateService.js";
 
-const totalEleitores = 39377; // Defina o número total de eleitores
+const totalEleitores = 39367; // Defina o número total de eleitores
 
 const resultados = async (req, res) => {
   try {
-    // Recupera os top 5 candidatos ordenados por votos
-    const topCandidates = await CandidateService.getTopCandidates(5);
+    // Recupera todos os candidatos cadastrados no banco
+    const allCandidates = await CandidateService.getAll();
     
     // Recupera os votos nulos e brancos
     const votosNulos = await CandidateService.getNullVotes();
     const votosBrancos = await CandidateService.getBlankVotes();
 
-    // Total de votos computados (candidatos + nulos + brancos)
-    const totalVotes = topCandidates.reduce((sum, candidate) => sum + candidate.votes, 0) + votosNulos + votosBrancos;
-
-    //Abstenções
-    const totalAbsentee = totalEleitores - totalVotes;
-
-    // Cálculo de votos válidos (apenas candidatos)
-    const totalValidVotes = totalEleitores - (totalAbsentee + votosNulos + votosBrancos);
+    // Total de votos computados (todos os candidatos + nulos + brancos)
+    const totalVotes = allCandidates.reduce((sum, candidate) => sum + candidate.votes, 0);
 
     // Cálculo de votantes e ausentes
     const totalVotantes = totalVotes;
     const totalAusentes = totalEleitores - totalVotantes;
+
+    // Cálculo de votos válidos (apenas candidatos, sem nulos e brancos)
+    const totalValidVotes = totalVotes - votosBrancos - votosNulos;
     
-    // Cálculo das urnas apuradas (13 salas)
+    // Filtro de candidatos para remover nulos e brancos
+    const validCandidates = allCandidates.filter(candidate => 
+      candidate.party !== 'NULO' && candidate.party !== 'BRANCO'
+    );
+
+    // ALGORITIMO TimSort, combinação de Merge Sort e Insertion Sort
+    // Recupera os top 5 candidatos ordenados por votos, excluindo nulos e brancos
+    const topCandidates = validCandidates
+      .sort((a, b) => b.votes - a.votes) // Ordena os candidatos por número de votos
+      .slice(0, 5); // Seleciona os 5 primeiros
+
+    // Cálculo das urnas apuradas (No meu caso foram 13 salas, inserir o número correspondente às suas seções)
     const urnasApuradas = (Object.keys(topCandidates[0].votesByRoom).length / 13) * 100;
 
     // Separando cada candidato pela sua posição
