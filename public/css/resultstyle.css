@@ -136,7 +136,7 @@ main {
 .general {
     width: 100%;
     height: 100%;
-    display: flex;
+    display: none;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -370,7 +370,109 @@ progress {
 }
 
 .analysis {
-    display: none;
+    width: 100%;
+    margin: 1rem 0;
+    display: grid;
+    grid-template:
+        "sala1 sala2 sala3" 20%
+        "sala4 sala5 sala6" 20%
+        "sala7 sala8 sala9" 20%
+        "sala10 sala11 sala12" 20%
+        ". sala13 ." 20%
+        /1fr 1fr 1fr
+    ;
+    background: #FFFFFF;
+}
+
+.analysis h2 {
+    width: 100%;
+    height: 2rem;
+    text-align: center;
+}
+
+.sala1 { 
+    grid-area: sala1;
+    background: #f4c30159;
+}
+
+.sala2 { grid-area: sala2; }
+
+.sala3 { 
+    grid-area: sala3;
+    background: #f4c30159;
+}
+.sala4 { grid-area: sala4; }
+
+.sala5 { 
+    grid-area: sala5;
+    background: #f4c30159;
+}
+
+.sala6 { grid-area: sala6; }
+
+.sala7 { 
+    grid-area: sala7;
+    background: #f4c30159;
+}
+
+.sala8 { grid-area: sala8; }
+
+.sala9 { 
+    grid-area: sala9;
+    background: #f4c30159;
+}
+
+.sala10 { grid-area: sala10; }
+
+.sala11 { 
+    grid-area: sala11;
+    background: #f4c30159;
+}
+
+.sala12 { grid-area: sala12; }
+
+.sala13 { grid-area: sala13; }
+
+.sala1, .sala2,
+.sala3, .sala4,
+.sala5, .sala6,
+.sala7, .sala8,
+.sala9, .sala10,
+.sala11, .sala12,
+.sala13 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: center;
+}
+
+.sectionUrnasApuradas, .qtdEleitores {
+    width: 50%;
+    height: 1.5rem;
+    text-align: center;
+    align-content: center;
+}
+
+.tableResults {
+    width: 100%;
+    height: 60%;
+    display: grid;
+    grid-template-columns: 249px 80px 100px 40px;
+    justify-items: start;
+    align-items: center;
+}
+
+.othersVotes {
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 footer {
