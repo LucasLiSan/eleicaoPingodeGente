@@ -22,3 +22,6 @@ analysisInput.addEventListener('change', toggleSections);
 
 // Chama a função ao carregar a página para garantir o estado correto
 toggleSections();
+
+
+/* --- GERANDO DIVs DINAMICAMENTE --- */

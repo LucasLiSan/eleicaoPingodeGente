@@ -136,7 +136,7 @@ main {
 .general {
     width: 100%;
     height: 100%;
-    display: none;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -372,7 +372,7 @@ progress {
 .analysis {
     width: 100%;
     margin: 1rem 0;
-    display: grid;
+    display: none;
     grid-template:
         "sala1 sala2 sala3" 20%
         "sala4 sala5 sala6" 20%

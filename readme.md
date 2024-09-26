@@ -31,8 +31,9 @@ Editor <br>
 	"party": "Sigla do partido",
 	"partyNumber": "Número do partido",
 	"candidatePic": "Foto do candidato (url)",
-	"viceCandidatePic": "Foto do vice candidato (url)"
+	"viceCandidatePic": "Foto do vice candidato (url)",
 	"votes": "Número de votos",
+	"votesByRoom": "Irá receber os votos de cada seção"
 }
 ```
 
