@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "./views/urna.ejs",
+      "src": "../views/urna.ejs",
       "use": "@vercel/node"
     }
   ],
