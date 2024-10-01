@@ -1,3 +1,5 @@
+//https://vinyldavyl.medium.com/how-to-deploy-a-fullstack-nodejs-and-express-app-on-vercel-c79d433eeb6
+
 /* ----------  IMPORTAÇÃO DE MÓDULOS ---------- */
 import express from "express";
 import multer from "multer";
