@@ -45,10 +45,11 @@ app.use('/', resultadoRoutes);
 
 /* ----------\/ INICIANDO SERVIDOR \/---------- */
 const port = 8080;
-//const myServer = ip.address();
-//console.log(myServer);
+const myServer = ip.address();
+const renderPort = '0.0.0.0';
+console.log(myServer);
 
-app.listen(port, '0.0.0.0', (error) => {
+app.listen(port, renderPort, (error) => {
     if(error) {console.log(error); }
     console.log(`API rodando em http://localhost:${port}.`);
 });
