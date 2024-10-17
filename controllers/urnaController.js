@@ -20,7 +20,7 @@ const urna = async (req, res) => {
 const processVote = async (req, res) => {
     try {
         const { partyNumber } = req.body;
-        const roomNumber = '3'; //Sessão eleitoral. Editado manualmente
+        const roomNumber = '1'; //Sessão eleitoral. Editado manualmente
 
         if (!partyNumber) {
             return res.status(400).json({ err: 'Número de partido ou voto em branco não preenchido!' });
