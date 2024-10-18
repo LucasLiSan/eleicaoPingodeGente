@@ -64,7 +64,7 @@ Esse endpoint é responsável por cadastrar uma nova chapa de candidatura no ban
 }
 ```
 
-> No cadastro não é necessário inserir o a chave (key) "votes" (votos), ela é inserida automáticamente com o valor 0.
+> No cadastro não é necessário inserir a chave (key) "votes" (votos) ou a chave (key) "votesByRoom" (votos por sala), elas são inseridas automáticamente com o valor 0.
 
 #### Respostas:
 <span style = "color:#00FF00; font-weight: bold">Criado! 201</span><br>
@@ -108,6 +108,7 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"party": "PSDB",
 			"partyNumber": 45,
 			"votes": 14744,
+			"votesByRoom": {},
 			"__v": 0,
 			"candidatePic": "/imgs/candidates/45-fernandoHenriqueCardoso.webp",
 			"viceCandidatePic": "/imgs/viceCandidates/45-marcoMaciel.webp"
@@ -119,6 +120,7 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"party": "PT",
 			"partyNumber": 13,
 			"votes": 9874,
+			"votesByRoom": {},
 			"__v": 0,
 			"candidatePic": "/imgs/candidates/13-luizInacioLulaDaSilva.webp",
 			"viceCandidatePic": "/imgs/viceCandidates/13-aloizioMercadante.webp"
@@ -130,6 +132,7 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"party": "PRN",
 			"partyNumber": 36,
 			"votes": 128,
+			"votesByRoom": {},
 			"__v": 0,
 			"candidatePic": "/imgs/candidates/36-carlosAntônioGomes.webp",
 			"viceCandidatePic": "/imgs/viceCandidates/36-díltonCarlosSalomoni.webp"
@@ -141,6 +144,7 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"party": "PPR",
 			"partyNumber": 11,
 			"votes": 438,
+			"votesByRoom": {},
 			"__v": 0,
 			"candidatePic": "/imgs/candidates/11-esperidiãoAmin.webp",
 			"viceCandidatePic": "/imgs/viceCandidates/11-gardêniaGonçalves.webp"
@@ -152,6 +156,7 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"party": "PSC",
 			"partyNumber": 20,
 			"votes": 72,
+			"votesByRoom": {},
 			"__v": 0,
 			"candidatePic": "/imgs/candidates/20-hernaniGoulartFortuna.webp",
 			"viceCandidatePic": "/imgs/viceCandidates/20-vítorJorgeAbdalaNósseis.webp"
@@ -163,6 +168,7 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"party": "PDT",
 			"partyNumber": 12,
 			"votes": 1005,
+			"votesByRoom": {},
 			"__v": 0,
 			"candidatePic": "/imgs/candidates/12-leonelBrizola.webp",
 			"viceCandidatePic": "/imgs/viceCandidates/12-darcyRibeiro.webp"
@@ -174,6 +180,7 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"party": "PMDB",
 			"partyNumber": 15,
 			"votes": 335,
+			"votesByRoom": {},
 			"__v": 0,
 			"candidatePic": "/imgs/candidates/15-orestesQuércia.webp",
 			"viceCandidatePic": "/imgs/viceCandidates/15-irisDeAraújo.webp"
@@ -185,6 +192,7 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"party": "PRONA",
 			"partyNumber": 56,
 			"votes": 566,
+			"votesByRoom": {},
 			"__v": 0,
 			"candidatePic": "/imgs/candidates/56-eneasCarneiro.webp",
 			"viceCandidatePic": "/imgs/viceCandidates/56-robertoGama.webp"
@@ -196,6 +204,7 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"party": "PBDDM",
 			"partyNumber": 19,
 			"votes": 0,
+			"votesByRoom": {},
 			"__v": 0,
 			"candidatePic": "/imgs/candidates/19-aldenouraDeSaPorto.webp",
 			"viceCandidatePic": "/imgs/viceCandidates/19-ninaMariaAlexin.webp"
@@ -206,6 +215,7 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"party": "BRANCO",
 			"partyNumber": 0,
 			"votes": 4,
+			"votesByRoom": {},
 			"__v": 0
 		},
 		{
@@ -214,6 +224,7 @@ Caso essa resposta aconteça, você vai receber a listagem de todas as a chapas 
 			"party": "NULO",
 			"partyNumber": 999,
 			"votes": 0,
+			"votesByRoom": {},
 			"__v": 0
 		}
 	]
@@ -257,6 +268,7 @@ Caso essa resposta aconteça, você vai receber as informações da chapa de can
 		"party": "PMDB",
 		"partyNumber": 15,
 		"votes": 335,
+		"votesByRoom": {},
 		"__v": 0,
 		"candidatePic": "/imgs/candidates/15-orestesQuércia.webp",
 		"viceCandidatePic": "/imgs/viceCandidates/15-irisDeAraújo.webp"
@@ -417,6 +429,7 @@ Esse endpoint é responsável por atualizar o número de votos de uma chapa de c
 - **Quantidade de votos a ser acrescida**.
 
 > Não é necessário incluir todos os campos, apenas o de votos.
+> Este endpoint é mais para correções e testes, não é necessariamente utilizado.
 
 > [!WARNING]  
 > Não inserir as outras informações do chapa de candidatura nesse endpoint, pra essa situação existe o endpoint específico. 
@@ -472,6 +485,7 @@ Esse endpoint é responsável por atualizar o número de votos de uma chapa de c
 - **Quantidade de votos a ser acrescida**.
 
 > Não é necessário incluir todos os campos, apenas o de votos.
+> Por padrão esse endpoint usa o incremento pra atualizar apenas um voto no dia da votação mas pode ser usado para adicionar mais votos em momentos de teste ou correções.
 
 > [!WARNING]  
 > Não inserir as outras informações do chapa de candidatura nesse endpoint, pra essa situação existe o endpoint específico. 
@@ -562,7 +576,7 @@ Caso essa resposta aconteça, significa que ocorreu um erro interno no servidor.
 ## REFERÊNCIAS
 Os quantitativos de votos usados nas demonstrações foram retiradas do site do [Tribunal Superior Eleitoral](https://www.tse.jus.br/#/):
 - [Chapas de candidaturas](https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_1994);
-- Quantidade de votos: [Resultados das Eleições 1994 - 1º Turno - Brasil
+- Quantidade de votos: [Resultados das Eleições 1994 - 1º Turno Exterior - Brasil
 ](https://www.tse.jus.br/eleicoes/eleicoes-anteriores/eleicoes-1994/resultados-das-eleicoes-1994/brasil/resultados-das-eleicoes-1994-brasil).
 
 ### URNA ELETRÔNICA DO BRASIL

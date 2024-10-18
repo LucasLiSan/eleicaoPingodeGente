@@ -56,6 +56,19 @@ class CandidateService {
             return nullVoteCandidate ? nullVoteCandidate.votes : 0;
         }
 
+        /* --- Método LISTAR VOTOS NULOS POR SALA --- */
+        async getNullVotesByRoom(roomNumber) {
+            try {
+                const nullVoteCandidate = await Candidate.findOne({ name: "VOTO NULO" });
+                return nullVoteCandidate && nullVoteCandidate.votesByRoom.has(roomNumber)
+                    ? nullVoteCandidate.votesByRoom.get(roomNumber)
+                    : 0;
+            } catch (error) {
+                console.log(error);
+                throw new Error('Erro ao buscar votos nulos por sala');
+            }
+        }
+
         /* --- Método LISTAR VOTOS BRANCOS --- */
         async getBlankVotes() {
             const blankVoteCandidate = await Candidate.findOne({ name: "VOTO EM BRANCO" });

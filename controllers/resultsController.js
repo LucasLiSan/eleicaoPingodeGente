@@ -3,9 +3,18 @@ import CandidateService from "../services/candidateService.js";
 // Defina o número total de eleitores
 const totalEleitores = 86;
 
-// Define o total de seções(salas) e valor inicial de urnas apuradas para o calculo de apuração de urnas
+// Define o total de seções(salas) e valor inicial de urnas apuradas para o cálculo de apuração de urnas
 const totalRooms = 5; // Total de salas
-let urnasApuradas = 0; //Valor inicial igual a 0
+let urnasApuradas = 0; // Valor inicial igual a 0
+
+// Definindo os nomes das salas
+const roomNames = { 
+    1: 'JARDIM 2-A', 
+    2: '1º ANO-A', 
+    3: '2º ANO-A', 
+    4: '3º ANO-A', 
+    5: '4º ANO-A' 
+};
 
 const resultados = async (req, res) => {
     try {
@@ -15,6 +24,16 @@ const resultados = async (req, res) => {
         // Recupera os votos nulos e brancos
         const votosNulos = await CandidateService.getNullVotes();
         const votosBrancos = await CandidateService.getBlankVotes();
+
+        // Obtenha os votos nulos por sala em paralelo
+        const nullVotesByRoom = await Promise.all(
+            Object.keys(roomNames).map(room => CandidateService.getNullVotesByRoom(room))
+        );
+
+        const votosNulosPorSala = nullVotesByRoom.reduce((acc, votos, index) => {
+            acc[index + 1] = votos; // Armazena os votos nulos por sala
+            return acc;
+        }, {});
 
         // Total de votos computados (todos os candidatos + nulos + brancos)
         const totalVotes = allCandidates.reduce((sum, candidate) => sum + candidate.votes, 0);
@@ -31,13 +50,13 @@ const resultados = async (req, res) => {
             candidate.party !== 'NULO' && candidate.party !== 'BRANCO'
         );
 
-        /* --- ALGORITIMO TIMSORT, combinação de MERGESORT e INSERTIONSORT --- */
+        /* --- ALGORITMO TIMSORT, combinação de MERGESORT e INSERTIONSORT --- */
         // Recupera os top 5 candidatos ordenados por votos, excluindo nulos e brancos
         const topCandidates = validCandidates
-        .sort((a, b) => b.votes - a.votes) // Ordena os candidatos por número de votos
-        .slice(0, 5); // Seleciona os 5 primeiros
+            .sort((a, b) => b.votes - a.votes) // Ordena os candidatos por número de votos
+            .slice(0, 5); // Seleciona os 5 primeiros
 
-        // Cálculo das urnas apuradas (No meu caso foram 13 salas, inserir o número correspondente às suas seções/salas)
+        // Cálculo das urnas apuradas
         if (allCandidates.length > 0) {
             const roomsWithVotes = new Set(); // Usar um Set para garantir salas únicas
             allCandidates.forEach(candidate => {
@@ -48,22 +67,21 @@ const resultados = async (req, res) => {
                     }
                 });
             });
-            
+
             // Calcular a porcentagem de urnas apuradas
             urnasApuradas = (roomsWithVotes.size * 100) / totalRooms;
         }
 
-
         // Função para calcular os top candidatos por sala
         const getTopCandidatesByRoom = (room) => {
             return validCandidates
-            .map(candidate => ({
-                name: candidate.name,
-                party: candidate.party,
-                votes: candidate.votesByRoom.get(room) || 0
-            }))
-            .sort((a, b) => b.votes - a.votes || a.name.localeCompare(b.name)) // Ordena por votos e desempata pelo nome
-            .slice(0, 5);
+                .map(candidate => ({
+                    name: candidate.name,
+                    party: candidate.party,
+                    votes: candidate.votesByRoom.get(room) || 0
+                }))
+                .sort((a, b) => b.votes - a.votes || a.name.localeCompare(b.name)) // Ordena por votos e desempata pelo nome
+                .slice(0, 5);
         };
 
         // Separando cada candidato pela sua posição
@@ -84,6 +102,7 @@ const resultados = async (req, res) => {
             totalAusentes,
             urnasApuradas,
             totalEleitores,
+            votosNulosPorSala, // Passa os votos nulos por sala
             getTopCandidatesByRoom
         });
     } catch (error) {

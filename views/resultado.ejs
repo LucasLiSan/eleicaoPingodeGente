@@ -140,49 +140,41 @@
                     </div>
                 </section>                
                 <section class="analysis">
-                    <% const roomNames = {
-                        1: 'JARDIM 2-A', 2: '1º ANO-A', 3: '2º ANO-A', 4: '3º ANO-A',
-                        5: '4º ANO-A'
-                    };
-                    const roomVoters = {
-                        1: 17, 2: 15, 3: 14, 4: 20, 5: 20
-                    }; %>
-                  
-                    <% Object.keys(roomNames).forEach(room => { 
-                      const topCandidatesRoom = getTopCandidatesByRoom(room); // Obtem os top candidatos para a sala
-                    %>
-                      <div class="sala<%= room %>">
-                        <h2><%= roomNames[room] %></h2>
-                        <span class="sectionUrnasApuradas">100% das urnas apuradas</span>
-                        <span class="qtdEleitores"><%= roomVoters[room] %> eleitores</span>
-                  
-                        <div class="tableResults">
-                          <% topCandidatesRoom.forEach(candidate => { %>
-                            <span class="candidateName"><%= candidate.name %></span>
-                            <span class="partyName"><%= candidate.party %></span>
-                            <span class="qtdVotesRoom"><%= candidate.votes %> votos</span>
-                            <span class="percentVotesRoom"><%= (candidate.votes / roomVoters[room] * 100).toFixed(2) %>%</span>
-                          <% }); %>
-                        </div>
-                  
-                        <div class="othersVotes">
-                          <span class="blankVotesRoom">BRANCOS:</span>
-                          <span class="qtdBlankVotesRoom"><%= votosBrancos %></span>
-                          <span class="percentVotesRoom">(<%= ((votosBrancos / roomVoters[room]) * 100).toFixed(2) %>)</span>
-                  
-                          <span class="nullVotesRoom">NULOS:</span>
-                          <span class="qtdNullVotesRoom"><%= votosNulos %></span>
-                          <span class="percentVotesRoom">(<%= ((votosNulos / roomVoters[room]) * 100).toFixed(2) %>)</span>
-                  
-                          <span class="missVotesRoom">FALTAS:</span>
-                          <span class="qtdMissVotesRoom"><%= roomVoters[room] - (topCandidatesRoom.reduce((sum, c) => sum + c.votes, 0) + votosBrancos + votosNulos) %></span>
-                          <span class="percentVotesRoom">(<%= ((roomVoters[room] - (topCandidatesRoom.reduce((sum, c) => sum + c.votes, 0) + votosBrancos + votosNulos)) / roomVoters[room] * 100).toFixed(2) %>)</span>
-                        </div>
-                      </div>
-                    <% }); %>
-                  </section>
-                  
+                    <% const roomNames = { 1: 'JARDIM 2-A', 2: '1º ANO-A', 3: '2º ANO-A', 4: '3º ANO-A', 5: '4º ANO-A' }; %>
+                    <% const roomVoters = { 1: 17, 2: 15, 3: 14, 4: 20, 5: 20 }; %>
                 
+                    <% Object.keys(roomNames).forEach(room => { 
+                        const topCandidatesRoom = getTopCandidatesByRoom(room); %>
+                        <div class="sala<%= room %>">
+                            <h2><%= roomNames[room] %></h2>
+                            <span class="sectionUrnasApuradas">100% das urnas apuradas</span>
+                            <span class="qtdEleitores"><%= roomVoters[room] %> eleitores</span>
+                
+                            <div class="tableResults">
+                                <% topCandidatesRoom.forEach(candidate => { %>
+                                    <span class="candidateName"><%= candidate.name %></span>
+                                    <span class="partyName"><%= candidate.party %></span>
+                                    <span class="qtdVotesRoom"><%= candidate.votes %> votos</span>
+                                    <span class="percentVotesRoom"><%= (candidate.votes / roomVoters[room] * 100).toFixed(2) %>%</span>
+                                <% }); %>
+                            </div>
+                
+                            <div class="othersVotes">
+                                <span class="blankVotesRoom">BRANCOS:</span>
+                                <span class="qtdBlankVotesRoom"><%= votosBrancos %></span>
+                                <span class="percentVotesRoom">(<%= ((votosBrancos / roomVoters[room]) * 100).toFixed(2) %>)</span>
+                                
+                                <span class="nullVotesRoom">NULOS:</span>
+                                <span class="qtdNullVotesRoom"><%= votosNulosPorSala[room] || 0 %></span>
+                                <span class="percentVotesRoom">(<%= ((votosNulosPorSala[room] || 0) / roomVoters[room] * 100).toFixed(2) %>)</span>
+                                
+                                <span class="missVotesRoom">FALTAS:</span>
+                                <span class="qtdMissVotesRoom"><%= roomVoters[room] - (topCandidatesRoom.reduce((sum, c) => sum + c.votes, 0) + votosBrancos + (votosNulosPorSala[room] || 0)) %></span>
+                                <span class="percentVotesRoom">(<%= ((roomVoters[room] - (topCandidatesRoom.reduce((sum, c) => sum + c.votes, 0) + votosBrancos + (votosNulosPorSala[room] || 0))) / roomVoters[room] * 100).toFixed(2) %>)</span>
+                            </div>
+                        </div>
+                    <% }); %>
+                </section>
             </main>
             <footer>
                 <div class="infos">
