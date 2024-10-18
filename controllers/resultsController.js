@@ -1,10 +1,10 @@
 import CandidateService from "../services/candidateService.js";
 
 // Defina o número total de eleitores
-const totalEleitores = 103;
+const totalEleitores = 86;
 
 // Define o total de seções(salas) e valor inicial de urnas apuradas para o calculo de apuração de urnas
-const totalRooms = 6; // Total de salas
+const totalRooms = 5; // Total de salas
 let urnasApuradas = 0; //Valor inicial igual a 0
 
 const resultados = async (req, res) => {
